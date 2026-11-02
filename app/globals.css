@@ -1,27 +1,28 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* 1200px. 기본 중단점과 단위가 다르면 미디어 쿼리 순서가 어긋나므로 rem으로 맞춥니다. */
+  --breakpoint-xl: 75rem;
+
+  --color-primary: #3b82c4;
+  --color-primary-light: #5b9dd4;
+  --color-primary-dark: #2c6faf;
+
+  --color-mint: #4db8a0;
+  --color-mint-light: #6ecbb6;
+
+  --color-accent: #f47b20;
+  --color-cream: #fafafa;
+  --color-ink: #333333;
+  --color-muted: #6b7280;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  button:not(:disabled) {
+    cursor: pointer;
   }
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+  word-break: keep-all;
 }

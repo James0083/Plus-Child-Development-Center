@@ -1,36 +1,28 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 플러스 아동발달센터 홈페이지
 
-## Getting Started
+Node.js 26 환경의 Next.js 프로젝트입니다.
 
-First, run the development server:
-
-```bash
+```sh
+npm install
+cp .env.example .env.local   # 대표 전화, 카카오 채널 값
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+`npm run lint`, `npm run build`로 검사합니다.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 버전 정책
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+`package.json`은 범위로 지정해 이후 업데이트를 열어 두고, 검증한 실제 버전은 `package-lock.json`에 고정합니다.
+`npm ci`는 고정된 버전을 그대로 설치하고, `npm update`는 범위 안에서 올립니다.
+`overrides`는 사용하지 않고, peer 범위가 맞는 버전과 패키지만 설치합니다.
 
-## Learn More
+| 설정 | 이유 | 바꿔도 되는 조건 |
+|---|---|---|
+| `typescript: ~6.0.3` | `typescript-eslint`가 TypeScript 6.1 미만만 지원 | `typescript-eslint`가 상위 버전을 지원할 때 |
+| `eslint-config-next` 미사용 | 포함된 `eslint-plugin-import`, `react`, `jsx-a11y`의 peer 범위가 ESLint 9까지이고, ESLint 9는 지원 종료 | 세 플러그인이 ESLint 10을 peer 범위에 포함할 때 |
 
-To learn more about Next.js, take a look at the following resources:
+### 남은 `npm audit` 항목
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+`npm audit`에 `minimatch` 보안 권고(11.0.1 미만, moderate)가 표시됩니다.
+ESLint와 `typescript-eslint`가 `minimatch` 10을 사용하기 때문이며, 개발 도구에만 해당하고 `npm audit --omit=dev`는 0건입니다.
+두 패키지가 11.0.1 이상을 사용하는 버전을 내면 `npm update`로 해소됩니다.
