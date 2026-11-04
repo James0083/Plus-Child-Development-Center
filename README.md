@@ -8,7 +8,9 @@ cp .env.example .env.local
 npm run dev
 ```
 
-`npm run lint`, `npm run build`로 검사합니다. Worker까지 함께 실행하려면 `npm run preview`를 사용합니다.
+`npm run format:check`, `npm run lint`, `npm run build`로 검사합니다. Worker까지 함께 실행하려면 `npm run preview`를 사용합니다.
+
+변경 기준은 [docs/code-review.md](docs/code-review.md), 디자인 기준은 [docs/design-system.md](docs/design-system.md)에 있습니다.
 
 ## 구조와 배포 (Cloudflare Workers 무료 플랜)
 

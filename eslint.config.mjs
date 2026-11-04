@@ -7,7 +7,7 @@ const eslintConfig = defineConfig([
   ...tseslint.configs.recommended,
   nextPlugin.configs['core-web-vitals'],
   reactHooks.configs.flat.recommended,
-  globalIgnores(['.next/**', 'out/**', 'build/**', 'next-env.d.ts']),
+  globalIgnores(['.next/**', '.wrangler/**', 'out/**', 'build/**', 'next-env.d.ts']),
 ])
 
 export default eslintConfig
