@@ -6,7 +6,7 @@ import { centerInfo, NAVER_MAP_URL, TEL_HREF } from '@/lib/constants'
 
 export default function MapSection() {
   return (
-    <section>
+    <section id="location">
       <div className="mx-auto max-w-6xl px-4 py-16">
         <SectionTitle title="찾아오는 길" />
         <div className="grid gap-6 md:grid-cols-5">

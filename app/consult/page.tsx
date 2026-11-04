@@ -7,14 +7,17 @@ import SectionTitle from '@/components/ui/SectionTitle'
 import { consultFeeNote, consultFees, consultSteps } from '@/data/consult'
 import { centerInfo, CONSULT_FORM_ENABLED, TEL_HREF } from '@/lib/constants'
 
-export const metadata: Metadata = { title: '상담 신청' }
+// 신청 폼을 켜기 전에는 전화와 카카오 채널로만 안내합니다.
+const pageTitle = CONSULT_FORM_ENABLED ? '상담 신청' : '상담 및 이용 안내'
+
+export const metadata: Metadata = { title: pageTitle }
 
 export default function ConsultPage() {
   const { regular, closed } = centerInfo.hours
 
   return (
     <section className="mx-auto max-w-2xl px-4 py-16">
-      <SectionTitle as="h1" title="상담 신청" description="편한 방법으로 문의해 주세요." />
+      <SectionTitle as="h1" title={pageTitle} description="편한 방법으로 문의해 주세요." />
 
       <div className="mb-10 rounded-2xl bg-white p-6 text-center shadow-sm md:p-8">
         <p className="text-2xl font-semibold text-primary-dark">{centerInfo.phone}</p>
@@ -59,7 +62,7 @@ export default function ConsultPage() {
           ))}
         </dl>
         <p className="mt-3 text-sm text-muted">{consultFeeNote}</p>
-        <Link href="/voucher" className="inline-block py-2.5 text-sm font-semibold text-primary-dark underline">
+        <Link href="/voucher" className="inline-block py-3 text-sm font-semibold text-primary-dark underline">
           바우처 안내 보기
         </Link>
       </div>

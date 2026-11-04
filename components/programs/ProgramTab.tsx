@@ -101,7 +101,7 @@ export default function ProgramTab() {
         </div>
         <p className="mt-6 text-sm text-muted">회기 구성: {active.session ?? programSession}</p>
         <Button href="/consult" className="mt-6">
-          {active.title} 상담 신청
+          {active.title} 상담 안내
         </Button>
       </div>
     </div>

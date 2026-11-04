@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Noto_Sans_KR } from "next/font/google";
 import FloatingCTA from "@/components/layout/FloatingCTA";
 import Footer from "@/components/layout/Footer";
@@ -10,13 +10,33 @@ const noto = Noto_Sans_KR({
   weight: ["300", "400", "600", "700"],
 });
 
+const description =
+  "전문 치료사와 함께하는 맞춤 아동발달 프로그램으로 우리 아이의 건강한 성장을 지원합니다.";
+
+// 공유 미리보기 이미지는 전체 주소가 필요해 도메인을 정한 뒤에만 넣습니다.
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+
 export const metadata: Metadata = {
+  ...(siteUrl ? { metadataBase: new URL(siteUrl) } : {}),
   title: {
     default: "플러스 아동발달센터",
     template: "%s | 플러스 아동발달센터",
   },
-  description:
-    "전문 치료사와 함께하는 맞춤 아동발달 프로그램으로 우리 아이의 건강한 성장을 지원합니다.",
+  description,
+  openGraph: {
+    type: "website",
+    locale: "ko_KR",
+    siteName: "플러스 아동발달센터",
+    title: "플러스 아동발달센터",
+    description,
+    ...(siteUrl
+      ? { url: "/", images: [{ url: "/images/og.jpg", width: 1200, height: 630, alt: "플러스 아동발달센터 건물과 안내 문구" }] }
+      : {}),
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#2f5496",
 };
 
 export default function RootLayout({

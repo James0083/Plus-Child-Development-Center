@@ -11,7 +11,8 @@ const navItems = [
   { label: '프로그램 안내', href: '/programs' },
   { label: '활동 안내', href: '/activities' },
   { label: '바우처 안내', href: '/voucher' },
-  { label: '상담 신청', href: '/consult', highlight: true },
+  { label: '찾아오는 길', href: '/#location' },
+  { label: '상담·비용 안내', href: '/consult', highlight: true },
 ]
 
 export default function Navbar() {

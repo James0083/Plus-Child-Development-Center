@@ -39,7 +39,7 @@ export default function ActivitiesPage() {
         <SchoolReady />
 
         <div className="mt-10 text-center">
-          <Button href="/consult">이용 상담 신청</Button>
+          <Button href="/consult">이용 상담 안내</Button>
         </div>
       </section>
 

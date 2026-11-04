@@ -39,7 +39,7 @@ export const schoolReady = {
   details: [
     { label: '모집 대상', value: '2027년 입학 예정 아동' },
     { label: '운영 기간', value: '10월 중순 ~ 2월 말' },
-    { label: '수업 시간', value: '매주 수요일 3시 20분 / 금요일 오후 6시' },
+    { label: '수업 시간', value: '매주 수요일 오후 3시 20분 / 금요일 오후 6시' },
     { label: '수업 구성', value: '50분 수업 + 10분 보호자 상담 (총 60분)' },
     { label: '장소', value: '플러스 아동발달센터' },
     { label: '문의', value: '센터 사무실' },
