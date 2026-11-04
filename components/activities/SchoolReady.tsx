@@ -11,7 +11,11 @@ const subscribe = () => () => {}
 
 // 정적 사이트라 다시 배포하지 않아도 숨겨지도록 방문자의 브라우저에서 날짜를 확인합니다.
 export default function SchoolReady() {
-  const visible = useSyncExternalStore(subscribe, () => Date.now() < hideAt, () => true)
+  const visible = useSyncExternalStore(
+    subscribe,
+    () => Date.now() < hideAt,
+    () => true,
+  )
   if (!visible) return null
 
   return (

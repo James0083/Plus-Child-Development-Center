@@ -14,7 +14,12 @@ export type LightboxPhoto = {
 
 const SWIPE_DISTANCE = 50
 
-function LightboxDialog({ photos, index, onChange, onClose }: {
+function LightboxDialog({
+  photos,
+  index,
+  onChange,
+  onClose,
+}: {
   photos: LightboxPhoto[]
   index: number
   onChange: (index: number) => void
@@ -49,7 +54,8 @@ function LightboxDialog({ photos, index, onChange, onClose }: {
     if (Math.abs(distance) >= SWIPE_DISTANCE) move(distance > 0 ? -1 : 1)
   }
 
-  const controlClass = 'absolute flex h-12 w-12 items-center justify-center rounded-full bg-black/60 text-white hover:bg-black/80'
+  const controlClass =
+    'absolute flex h-12 w-12 items-center justify-center rounded-full bg-black/60 text-white hover:bg-black/80'
 
   return (
     <dialog
@@ -89,10 +95,20 @@ function LightboxDialog({ photos, index, onChange, onClose }: {
       </button>
       {hasSiblings && (
         <>
-          <button type="button" onClick={() => move(-1)} aria-label="이전 사진" className={`${controlClass} left-3 top-1/2 -translate-y-1/2`}>
+          <button
+            type="button"
+            onClick={() => move(-1)}
+            aria-label="이전 사진"
+            className={`${controlClass} left-3 top-1/2 -translate-y-1/2`}
+          >
             <ChevronLeft className="h-7 w-7" aria-hidden />
           </button>
-          <button type="button" onClick={() => move(1)} aria-label="다음 사진" className={`${controlClass} right-3 top-1/2 -translate-y-1/2`}>
+          <button
+            type="button"
+            onClick={() => move(1)}
+            aria-label="다음 사진"
+            className={`${controlClass} right-3 top-1/2 -translate-y-1/2`}
+          >
             <ChevronRight className="h-7 w-7" aria-hidden />
           </button>
         </>
@@ -102,7 +118,15 @@ function LightboxDialog({ photos, index, onChange, onClose }: {
 }
 
 // 사진을 누르면 크게 보여 줍니다. 여러 장이면 좌우로 넘길 수 있습니다.
-export function ZoomableImage({ photos, index = 0, thumbSrc, sizes, className = '', imageClassName = '', objectPosition }: {
+export function ZoomableImage({
+  photos,
+  index = 0,
+  thumbSrc,
+  sizes,
+  className = '',
+  imageClassName = '',
+  objectPosition,
+}: {
   photos: LightboxPhoto[]
   index?: number
   thumbSrc?: string

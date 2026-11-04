@@ -12,8 +12,6 @@ type BadgeProps = {
 
 export default function Badge({ children, tone = 'primary' }: BadgeProps) {
   return (
-    <span className={`inline-block rounded-full px-3 py-1 text-xs font-bold text-ink ${tones[tone]}`}>
-      {children}
-    </span>
+    <span className={`inline-block rounded-full px-3 py-1 text-xs font-bold text-ink ${tones[tone]}`}>{children}</span>
   )
 }

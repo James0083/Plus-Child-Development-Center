@@ -47,11 +47,7 @@ export default function Button({
   }
   const external = href.startsWith('http')
   return (
-    <a
-      href={href}
-      className={classes}
-      {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-    >
+    <a href={href} className={classes} {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
       {children}
       {external && <span className="sr-only"> (새 창)</span>}
     </a>

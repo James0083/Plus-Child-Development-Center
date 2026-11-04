@@ -48,7 +48,7 @@ function parseRequest(body: Record<string, unknown> | null): ConsultRequest | nu
     (preferDate === '' || DATE_PATTERN.test(preferDate))
 
   return valid
-    ? { childName, birthDate, gender, parentName, phone, content, preferDate, turnstileToken } as ConsultRequest
+    ? ({ childName, birthDate, gender, parentName, phone, content, preferDate, turnstileToken } as ConsultRequest)
     : null
 }
 

@@ -36,7 +36,8 @@ type ConsultFormValues = {
   privacy: boolean
 }
 
-const inputClass = 'mt-2 w-full rounded-lg border border-gray-300 bg-white px-4 py-3 focus:border-primary focus:outline-hidden focus:ring-2 focus:ring-primary/30'
+const inputClass =
+  'mt-2 w-full rounded-lg border border-gray-300 bg-white px-4 py-3 focus:border-primary focus:outline-hidden focus:ring-2 focus:ring-primary/30'
 
 // 사용자의 현지 날짜를 YYYY-MM-DD로 반환합니다.
 const today = () => {
@@ -57,7 +58,13 @@ function ErrorText({ id, message }: { id: string; message?: string }) {
   )
 }
 
-function Field({ name, label, required, error, children }: {
+function Field({
+  name,
+  label,
+  required,
+  error,
+  children,
+}: {
   name: string
   label: string
   required?: boolean
@@ -68,7 +75,11 @@ function Field({ name, label, required, error, children }: {
     <div>
       <label htmlFor={name} className="font-bold">
         {label}
-        {required && <span aria-hidden className="ml-1 text-red-700">*</span>}
+        {required && (
+          <span aria-hidden className="ml-1 text-red-700">
+            *
+          </span>
+        )}
       </label>
       {children}
       <ErrorText id={`${name}-error`} message={error} />
@@ -165,7 +176,9 @@ export default function ConsultForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-6 card p-6 md:p-8">
       <p className="text-sm text-muted">
-        <span aria-hidden className="mr-1 text-red-700">*</span>
+        <span aria-hidden className="mr-1 text-red-700">
+          *
+        </span>
         표시는 필수 항목입니다.
       </p>
       <Field name="childName" label="아동 이름" required error={errors.childName?.message}>
@@ -192,9 +205,17 @@ export default function ConsultForm() {
         />
       </Field>
 
-      <fieldset role="radiogroup" aria-required aria-invalid={errors.gender ? true : undefined} aria-describedby={errors.gender ? 'gender-error' : undefined}>
+      <fieldset
+        role="radiogroup"
+        aria-required
+        aria-invalid={errors.gender ? true : undefined}
+        aria-describedby={errors.gender ? 'gender-error' : undefined}
+      >
         <legend className="font-bold">
-          성별<span aria-hidden className="ml-1 text-red-700">*</span>
+          성별
+          <span aria-hidden className="ml-1 text-red-700">
+            *
+          </span>
         </legend>
         <div className="mt-1 flex gap-6">
           {['남', '여'].map((option) => (

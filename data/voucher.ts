@@ -8,7 +8,8 @@ export const vouchers = [
       { label: '연령', value: '18세 미만 (신청일 기준, 18세가 되는 달까지 지원)' },
       {
         label: '소득 기준',
-        value: '기준중위소득 180% 이하. 장애아동 2명 이상 가구, 부모 중 1명 이상이 중증장애인인 가구 등은 예외 기준이 있습니다.',
+        value:
+          '기준중위소득 180% 이하. 장애아동 2명 이상 가구, 부모 중 1명 이상이 중증장애인인 가구 등은 예외 기준이 있습니다.',
       },
       { label: '서비스', value: '언어·청능, 미술·음악, 행동·놀이·심리, 감각·운동 등 발달재활 서비스' },
     ],
@@ -25,7 +26,8 @@ export const vouchers = [
   },
 ]
 
-export const voucherSupportNote = '바우처를 이용하면 비용의 약 50%를 지원받을 수 있으며, 소득에 따라 지원금이 달라집니다.'
+export const voucherSupportNote =
+  '바우처를 이용하면 비용의 약 50%를 지원받을 수 있으며, 소득에 따라 지원금이 달라집니다.'
 
 export const voucherCommonNotes = [
   voucherSupportNote,

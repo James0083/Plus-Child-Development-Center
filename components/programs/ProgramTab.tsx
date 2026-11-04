@@ -64,13 +64,7 @@ export default function ProgramTab() {
         })}
       </div>
 
-      <div
-        id={`panel-${active.id}`}
-        role="tabpanel"
-        aria-labelledby={active.id}
-        tabIndex={0}
-        className="mt-8 card p-8"
-      >
+      <div id={`panel-${active.id}`} role="tabpanel" aria-labelledby={active.id} tabIndex={0} className="mt-8 card p-8">
         <div className="flex flex-wrap items-center gap-4">
           <span
             aria-hidden

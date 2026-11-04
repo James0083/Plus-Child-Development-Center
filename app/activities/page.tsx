@@ -9,7 +9,6 @@ import { activities, activityNote } from '@/data/activities'
 
 export const metadata: Metadata = { title: '활동 안내' }
 
-
 export default function ActivitiesPage() {
   return (
     <>

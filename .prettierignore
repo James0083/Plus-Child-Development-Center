@@ -1,0 +1,8 @@
+.next/
+.wrangler/
+out/
+node_modules/
+package-lock.json
+next-env.d.ts
+*.md
+public/

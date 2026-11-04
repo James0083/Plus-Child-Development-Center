@@ -1,48 +1,50 @@
-import type { Metadata, Viewport } from "next";
-import { Nanum_Gothic } from "next/font/google";
-import FloatingCTA from "@/components/layout/FloatingCTA";
-import Footer from "@/components/layout/Footer";
-import Navbar from "@/components/layout/Navbar";
-import "./globals.css";
+import type { Metadata, Viewport } from 'next'
+import { Nanum_Gothic } from 'next/font/google'
+import FloatingCTA from '@/components/layout/FloatingCTA'
+import Footer from '@/components/layout/Footer'
+import Navbar from '@/components/layout/Navbar'
+import './globals.css'
 
 const font = Nanum_Gothic({
-  subsets: ["latin"],
-  weight: ["400", "700", "800"],
-});
+  subsets: ['latin'],
+  weight: ['400', '700', '800'],
+})
 
-const description =
-  "전문 치료사와 함께하는 맞춤 아동발달 프로그램으로 우리 아이의 건강한 성장을 지원합니다.";
+const description = '전문 치료사와 함께하는 맞춤 아동발달 프로그램으로 우리 아이의 건강한 성장을 지원합니다.'
 
 // 공유 미리보기 이미지는 전체 주소가 필요해 도메인을 정한 뒤에만 넣습니다.
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
 
 export const metadata: Metadata = {
   ...(siteUrl ? { metadataBase: new URL(siteUrl) } : {}),
   title: {
-    default: "플러스 아동발달센터",
-    template: "%s | 플러스 아동발달센터",
+    default: '플러스 아동발달센터',
+    template: '%s | 플러스 아동발달센터',
   },
   description,
   openGraph: {
-    type: "website",
-    locale: "ko_KR",
-    siteName: "플러스 아동발달센터",
-    title: "플러스 아동발달센터",
+    type: 'website',
+    locale: 'ko_KR',
+    siteName: '플러스 아동발달센터',
+    title: '플러스 아동발달센터',
     description,
     ...(siteUrl
-      ? { url: "/", images: [{ url: "/images/og.jpg", width: 1200, height: 630, alt: "플러스 아동발달센터 건물과 안내 문구" }] }
+      ? {
+          url: '/',
+          images: [{ url: '/images/og.jpg', width: 1200, height: 630, alt: '플러스 아동발달센터 건물과 안내 문구' }],
+        }
       : {}),
   },
-};
+}
 
 export const viewport: Viewport = {
-  themeColor: "#2f5496",
-};
+  themeColor: '#2f5496',
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="ko">
@@ -61,5 +63,5 @@ export default function RootLayout({
         <FloatingCTA />
       </body>
     </html>
-  );
+  )
 }

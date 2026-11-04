@@ -34,7 +34,10 @@ export default function Navbar() {
     if (!open) return
     const menuButton = menuButtonRef.current
     // 메뉴 뒤의 내용은 키보드와 스크린리더가 들어가지 못하게 막습니다.
-    const background = [navRef.current, ...document.querySelectorAll<HTMLElement>('a[href="#main"], main, footer, [data-quick-cta]')]
+    const background = [
+      navRef.current,
+      ...document.querySelectorAll<HTMLElement>('a[href="#main"], main, footer, [data-quick-cta]'),
+    ]
     background.forEach((el) => {
       if (el) el.inert = true
     })
@@ -67,7 +70,14 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 bg-white shadow-xs">
       <nav ref={navRef} aria-label="주 메뉴" className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
         <Link href="/" className="shrink-0 py-2">
-          <Image src="/logo/logo.svg" alt="플러스 아동발달센터" width={829} height={129} preload className="h-7 w-auto lg:h-9" />
+          <Image
+            src="/logo/logo.svg"
+            alt="플러스 아동발달센터"
+            width={829}
+            height={129}
+            preload
+            className="h-7 w-auto lg:h-9"
+          />
         </Link>
 
         <ul className="hidden items-center gap-6 lg:flex">
@@ -101,7 +111,12 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div role="dialog" aria-modal="true" aria-label="전체 메뉴" className="fixed inset-0 z-50 flex flex-col bg-white lg:hidden">
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="전체 메뉴"
+          className="fixed inset-0 z-50 flex flex-col bg-white lg:hidden"
+        >
           <div className="flex h-16 items-center justify-between px-4">
             <Link href="/" onClick={() => setOpenedOn(null)} className="shrink-0 py-2">
               <Image src="/logo/logo.svg" alt="플러스 아동발달센터" width={829} height={129} className="h-7 w-auto" />
@@ -119,7 +134,9 @@ export default function Navbar() {
                     onClick={() => setOpenedOn(null)}
                     aria-current={pathname === item.href ? 'page' : undefined}
                     className={`block rounded-lg px-4 py-4 text-lg font-bold ${
-                      item.highlight ? 'bg-accent text-white' : `hover:bg-primary/10 ${pathname === item.href ? 'text-primary' : ''}`
+                      item.highlight
+                        ? 'bg-accent text-white'
+                        : `hover:bg-primary/10 ${pathname === item.href ? 'text-primary' : ''}`
                     }`}
                   >
                     {item.label}

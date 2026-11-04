@@ -3,7 +3,14 @@ import BulletList from '@/components/ui/BulletList'
 import Button from '@/components/ui/Button'
 import Section from '@/components/ui/Section'
 import SectionTitle from '@/components/ui/SectionTitle'
-import { otherVouchers, voucherApplyNote, voucherCommonNotes, voucherContacts, vouchers, voucherSteps } from '@/data/voucher'
+import {
+  otherVouchers,
+  voucherApplyNote,
+  voucherCommonNotes,
+  voucherContacts,
+  vouchers,
+  voucherSteps,
+} from '@/data/voucher'
 
 export const metadata: Metadata = { title: '바우처 안내' }
 

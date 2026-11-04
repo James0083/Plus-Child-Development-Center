@@ -47,5 +47,4 @@ export const LEGAL_EFFECTIVE_DATE = '2026년 11월 4일'
 
 // 메일 전송을 시험한 뒤에만 켭니다. 꺼져 있으면 전화와 카카오 채널로만 안내합니다.
 export const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? ''
-export const CONSULT_FORM_ENABLED =
-  process.env.NEXT_PUBLIC_CONSULT_FORM_ENABLED === 'true' && TURNSTILE_SITE_KEY !== ''
+export const CONSULT_FORM_ENABLED = process.env.NEXT_PUBLIC_CONSULT_FORM_ENABLED === 'true' && TURNSTILE_SITE_KEY !== ''

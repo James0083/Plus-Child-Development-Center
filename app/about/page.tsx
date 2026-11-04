@@ -37,29 +37,29 @@ export default function AboutPage() {
       </Section>
 
       <Section tone="white">
-          <SectionTitle title="전문 치료사" description={`전체 치료사 ${staff.total}명이 함께합니다.`} />
-          <ul className="grid grid-cols-2 gap-4 md:grid-cols-5">
-            {staff.fields.map((field) => (
-              <li key={field.name} className="rounded-2xl bg-cream p-6 text-center last:col-span-2 md:last:col-span-1">
-                <p className="text-lg font-bold">{field.name}</p>
-                <p className="mt-1 text-2xl font-extrabold text-primary">{field.count}명</p>
-              </li>
-            ))}
-          </ul>
-        </Section>
+        <SectionTitle title="전문 치료사" description={`전체 치료사 ${staff.total}명이 함께합니다.`} />
+        <ul className="grid grid-cols-2 gap-4 md:grid-cols-5">
+          {staff.fields.map((field) => (
+            <li key={field.name} className="rounded-2xl bg-cream p-6 text-center last:col-span-2 md:last:col-span-1">
+              <p className="text-lg font-bold">{field.name}</p>
+              <p className="mt-1 text-2xl font-extrabold text-primary">{field.count}명</p>
+            </li>
+          ))}
+        </ul>
+      </Section>
 
       <Section tone="white" width="md">
-          <SectionTitle title="센터 연혁" />
-          <ol className="mx-auto w-fit border-l-2 border-primary-light">
-            {history.map((item) => (
-              <li key={item.date} className="relative pb-8 pl-8 last:pb-0">
-                <span className="absolute left-[-7px] top-1.5 h-3 w-3 rounded-full bg-primary" aria-hidden />
-                <p className="font-bold text-primary">{item.date}</p>
-                <p className="mt-1">{item.event}</p>
-              </li>
-            ))}
-          </ol>
-        </Section>
+        <SectionTitle title="센터 연혁" />
+        <ol className="mx-auto w-fit border-l-2 border-primary-light">
+          {history.map((item) => (
+            <li key={item.date} className="relative pb-8 pl-8 last:pb-0">
+              <span className="absolute left-[-7px] top-1.5 h-3 w-3 rounded-full bg-primary" aria-hidden />
+              <p className="font-bold text-primary">{item.date}</p>
+              <p className="mt-1">{item.event}</p>
+            </li>
+          ))}
+        </ol>
+      </Section>
 
       <Section>
         <SectionTitle title="협력기관" />
@@ -76,9 +76,9 @@ export default function AboutPage() {
       </Section>
 
       <Section tone="white">
-          <SectionTitle title="시설 안내" description={`${centerInfo.amenities.join(', ')}을 이용할 수 있습니다.`} />
-          <FacilityGallery />
-        </Section>
+        <SectionTitle title="시설 안내" description={`${centerInfo.amenities.join(', ')}을 이용할 수 있습니다.`} />
+        <FacilityGallery />
+      </Section>
     </>
   )
 }

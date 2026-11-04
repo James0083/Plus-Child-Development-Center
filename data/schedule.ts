@@ -9,10 +9,7 @@ const formatTime = (minutes: number) => {
   return `${pad(Math.floor(minutes / 60))}:${pad(minutes % 60)}`
 }
 
-export const sessions = Array.from(
-  { length: (lastStart - firstStart) / sessionMinutes + 1 },
-  (_, index) => {
-    const start = firstStart + index * sessionMinutes
-    return { start: formatTime(start), end: formatTime(start + sessionMinutes) }
-  },
-)
+export const sessions = Array.from({ length: (lastStart - firstStart) / sessionMinutes + 1 }, (_, index) => {
+  const start = firstStart + index * sessionMinutes
+  return { start: formatTime(start), end: formatTime(start + sessionMinutes) }
+})
