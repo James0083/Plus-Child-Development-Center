@@ -16,6 +16,7 @@ const itemClass = 'flex items-center gap-3 rounded-full bg-accent py-2 pl-4 pr-3
 export default function FloatingCTA() {
   const [open, setOpen] = useState(false)
   const rootRef = useRef<HTMLDivElement>(null)
+  const toggleRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
     if (!open) return
@@ -23,7 +24,10 @@ export default function FloatingCTA() {
       if (!rootRef.current?.contains(e.target as Node)) setOpen(false)
     }
     const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setOpen(false)
+      if (e.key === 'Escape') {
+        setOpen(false)
+        toggleRef.current?.focus()
+      }
     }
     document.addEventListener('pointerdown', onPointerDown)
     document.addEventListener('keydown', onKeyDown)
@@ -36,7 +40,7 @@ export default function FloatingCTA() {
   return (
     <>
       {/* 모바일과 태블릿: 본문을 가리지 않도록 화면 아래에 고정합니다. */}
-      <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 gap-2 border-t border-gray-200 bg-white p-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] lg:hidden">
+      <nav data-quick-cta aria-label="빠른 상담" className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 gap-2 border-t border-gray-200 bg-white p-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] lg:hidden">
         <a href={TEL_HREF} className="flex items-center justify-center gap-2 rounded-lg bg-accent py-3 font-semibold text-white">
           <Phone className="h-5 w-5" aria-hidden />
           전화 연결
@@ -49,8 +53,9 @@ export default function FloatingCTA() {
         >
           <MessageCircle className="h-5 w-5" aria-hidden />
           카카오 상담
+          <span className="sr-only"> (새 창)</span>
         </a>
-      </div>
+      </nav>
 
       <div ref={rootRef} className="fixed bottom-6 right-6 z-40 hidden flex-col items-end gap-3 lg:flex">
         {open &&
@@ -69,11 +74,13 @@ export default function FloatingCTA() {
                 {...(action.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
               >
                 {label}
+                {action.startsWith('http') && <span className="sr-only"> (새 창)</span>}
                 <Icon className="h-5 w-5" aria-hidden />
               </a>
             ),
           )}
         <button
+          ref={toggleRef}
           type="button"
           onClick={() => setOpen((prev) => !prev)}
           aria-expanded={open}

@@ -26,6 +26,11 @@
   }
 }
 
+/* 고정된 머리글과 하단 바가 포커스된 요소를 가리지 않게 합니다. */
+html {
+  scroll-padding-block: 5rem;
+}
+
 body {
   word-break: keep-all;
 }

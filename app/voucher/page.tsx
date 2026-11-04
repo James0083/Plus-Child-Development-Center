@@ -28,7 +28,7 @@ export default function VoucherPage() {
       <h3 className="mt-12 text-lg font-semibold">이용 절차</h3>
       <ol className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
         {voucherSteps.map((step, index) => (
-          <li key={step} className="flex items-center gap-3 rounded-lg bg-primary/10 p-4 font-semibold">
+          <li key={step} className="flex items-center gap-3 rounded-lg bg-primary-soft p-4 font-semibold">
             <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary-dark text-sm text-white">
               {index + 1}
             </span>
@@ -38,7 +38,7 @@ export default function VoucherPage() {
       </ol>
 
       <h2 className="mt-12 text-2xl font-semibold">그 외 바우처</h2>
-      <ul className="mt-4 grid gap-6 md:grid-cols-3">
+      <ul className="mt-4 grid gap-6 lg:grid-cols-3">
         {otherVouchers.map((voucher) => (
           <li key={voucher.title} className="rounded-2xl bg-white p-6 shadow-sm">
             <h3 className="text-lg font-semibold">{voucher.title}</h3>
@@ -64,6 +64,7 @@ export default function VoucherPage() {
                 {...(contact.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
               >
                 {contact.value}
+                {contact.href.startsWith('http') && <span className="sr-only"> (새 창)</span>}
               </a>
             </li>
           ))}

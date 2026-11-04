@@ -27,8 +27,16 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={`${noto.className} flex min-h-screen flex-col bg-cream text-ink antialiased`}>
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-2 focus:z-60 focus:rounded-lg focus:bg-white focus:px-4 focus:py-3 focus:font-semibold focus:text-primary-dark focus:shadow-lg"
+        >
+          본문 바로가기
+        </a>
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main id="main" tabIndex={-1} className="flex-1 outline-hidden">
+          {children}
+        </main>
         <Footer />
         <FloatingCTA />
       </body>

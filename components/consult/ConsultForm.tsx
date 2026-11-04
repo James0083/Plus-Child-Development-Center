@@ -51,7 +51,7 @@ const notBlank = (message: string) => (value: string) => value.trim().length > 0
 function ErrorText({ id, message }: { id: string; message?: string }) {
   if (!message) return null
   return (
-    <p id={id} role="alert" className="mt-1 text-sm text-red-700">
+    <p id={id} className="mt-1 text-sm text-red-700">
       {message}
     </p>
   )
@@ -68,7 +68,7 @@ function Field({ name, label, required, error, children }: {
     <div>
       <label htmlFor={name} className="font-semibold">
         {label}
-        {required && <span className="ml-1 text-red-700">*</span>}
+        {required && <span aria-hidden className="ml-1 text-red-700">*</span>}
       </label>
       {children}
       <ErrorText id={`${name}-error`} message={error} />
@@ -83,6 +83,7 @@ export default function ConsultForm() {
   const [turnstileToken, setTurnstileToken] = useState('')
   const [widgetId, setWidgetId] = useState<string | null>(null)
   const turnstileRef = useRef<HTMLDivElement>(null)
+  const doneRef = useRef<HTMLDivElement>(null)
   const {
     register,
     handleSubmit,
@@ -109,6 +110,11 @@ export default function ConsultForm() {
     },
     [widgetId],
   )
+
+  // 폼이 사라지므로 완료 문구로 포커스를 옮겨 스크린리더가 읽게 합니다.
+  useEffect(() => {
+    if (submitted) doneRef.current?.focus()
+  }, [submitted])
 
   const onSubmit = async (values: ConsultFormValues) => {
     if (!turnstileToken) {
@@ -141,7 +147,7 @@ export default function ConsultForm() {
 
   if (submitted) {
     return (
-      <div role="status" className="rounded-2xl bg-white p-10 text-center shadow-sm">
+      <div ref={doneRef} tabIndex={-1} role="status" className="rounded-2xl bg-white p-10 text-center shadow-sm outline-hidden">
         <CheckCircle2 className="mx-auto h-12 w-12 text-mint" aria-hidden />
         <p className="mt-4 whitespace-pre-line text-lg font-semibold">
           {'상담 신청이 완료되었습니다.\n영업일 기준 1~2일 내로 연락드리겠습니다. 감사합니다.'}
@@ -151,12 +157,17 @@ export default function ConsultForm() {
   }
 
   const invalidProps = (name: keyof ConsultFormValues) => ({
+    'aria-required': name === 'preferDate' ? undefined : true,
     'aria-invalid': errors[name] ? true : undefined,
     'aria-describedby': errors[name] ? `${name}-error` : undefined,
   })
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-6 rounded-2xl bg-white p-6 shadow-sm md:p-8">
+      <p className="text-sm text-muted">
+        <span aria-hidden className="mr-1 text-red-700">*</span>
+        표시는 필수 항목입니다.
+      </p>
       <Field name="childName" label="아동 이름" required error={errors.childName?.message}>
         <input
           id="childName"
@@ -181,17 +192,17 @@ export default function ConsultForm() {
         />
       </Field>
 
-      <fieldset aria-describedby={errors.gender ? 'gender-error' : undefined}>
+      <fieldset role="radiogroup" aria-required aria-invalid={errors.gender ? true : undefined} aria-describedby={errors.gender ? 'gender-error' : undefined}>
         <legend className="font-semibold">
-          성별<span className="ml-1 text-red-700">*</span>
+          성별<span aria-hidden className="ml-1 text-red-700">*</span>
         </legend>
-        <div className="mt-2 flex gap-6">
+        <div className="mt-1 flex gap-6">
           {['남', '여'].map((option) => (
-            <label key={option} className="flex items-center gap-2">
+            <label key={option} className="flex min-h-11 min-w-11 items-center gap-2">
               <input
                 type="radio"
                 value={option}
-                className="h-4 w-4 accent-primary"
+                className="h-5 w-5 accent-primary"
                 {...register('gender', { required: '성별을 선택해 주세요.' })}
               />
               {option}
@@ -261,17 +272,18 @@ export default function ConsultForm() {
           <li>전달 방법: 입력한 내용은 센터 이메일로 전송됩니다.</li>
           <li>보유 기간: {PRIVACY_RETENTION}</li>
         </ul>
-        <label className="mt-3 flex items-start gap-2 font-semibold">
+        <label className="mt-1 flex items-start gap-2 py-2.5 font-semibold">
           <input
             type="checkbox"
-            className="mt-1 h-4 w-4 accent-primary"
+            className="mt-0.5 h-5 w-5 shrink-0 accent-primary"
             {...invalidProps('privacy')}
             {...register('privacy', { required: '개인정보 수집·이용에 동의해 주세요.' })}
           />
           개인정보 수집·이용 동의 (필수)
         </label>
-        <Link href="/privacy" target="_blank" className="mt-2 inline-block text-sm text-primary-dark underline">
+        <Link href="/privacy" target="_blank" className="inline-block py-2.5 text-sm text-primary-dark underline">
           개인정보처리방침 보기
+          <span className="sr-only"> (새 창)</span>
         </Link>
         <ErrorText id="privacy-error" message={errors.privacy?.message} />
       </div>

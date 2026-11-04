@@ -24,7 +24,7 @@ export default function MapSection() {
               alt={`${centerInfo.name} 위치를 표시한 네이버 지도`}
               className="h-auto w-full"
             />
-            <span className="block p-4 text-center font-semibold text-primary-dark">네이버 지도에서 보기</span>
+            <span className="block p-4 text-center font-semibold text-primary-dark">네이버 지도에서 보기<span className="sr-only"> (새 창)</span></span>
           </a>
 
           <div className="flex flex-col gap-5 md:col-span-2">
