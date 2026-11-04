@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { footerInfo } from '@/lib/constants'
+import { footerInfo, TEL_HREF } from '@/lib/constants'
 
 export default function Footer() {
   return (
@@ -24,11 +24,19 @@ export default function Footer() {
           </div>
           <div>
             <dt className="inline">전화 </dt>
-            <dd className="inline">{footerInfo.phone}</dd>
+            <dd className="inline">
+              <a href={TEL_HREF} className="inline-block py-3 underline underline-offset-2">
+                {footerInfo.phone}
+              </a>
+            </dd>
           </div>
           <div>
             <dt className="inline">이메일 </dt>
-            <dd className="inline">{footerInfo.email}</dd>
+            <dd className="inline">
+              <a href={`mailto:${footerInfo.email}`} className="inline-block py-3 underline underline-offset-2">
+                {footerInfo.email}
+              </a>
+            </dd>
           </div>
         </dl>
         <div className="mt-6 flex flex-col gap-2 border-t border-white/20 pt-6 md:flex-row md:justify-between">

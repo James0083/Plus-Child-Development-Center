@@ -1,5 +1,6 @@
 import { Accessibility, Bus, Car, Clock, MapPin, MessageCircle, Phone } from 'lucide-react'
 import Image from 'next/image'
+import CopyAddressButton from '@/components/home/CopyAddressButton'
 import Button from '@/components/ui/Button'
 import Section from '@/components/ui/Section'
 import SectionTitle from '@/components/ui/SectionTitle'
@@ -34,8 +35,9 @@ export default function MapSection() {
           <div className="flex gap-3">
             <MapPin className="h-5 w-5 shrink-0 text-primary" aria-hidden />
             <div>
-              <p>{centerInfo.address}</p>
+              <p className="select-all">{centerInfo.address}</p>
               <p className="mt-1 text-sm text-muted">지번: {centerInfo.addressLot}</p>
+              <CopyAddressButton address={centerInfo.address} />
             </div>
           </div>
           <div className="flex gap-3">
