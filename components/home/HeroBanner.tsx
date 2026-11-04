@@ -41,7 +41,7 @@ export default function HeroBanner() {
           animate="visible"
           className="hero-content flex flex-col justify-center px-4 py-10 md:min-h-[26rem] md:pr-8 md:pl-[max(1rem,calc((100vw_-_72rem)/2_+_1rem))] lg:col-span-2 lg:min-h-[32rem]"
         >
-          <motion.h1 variants={fadeInUp} className="text-4xl font-bold leading-tight lg:text-5xl lg:leading-tight">
+          <motion.h1 variants={fadeInUp} className="text-4xl font-extrabold leading-tight lg:text-5xl lg:leading-tight">
             아이의 가능성을
             <br />
             함께 키워갑니다

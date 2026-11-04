@@ -79,7 +79,7 @@ function LightboxDialog({ photos, index, onChange, onClose }: {
             className="h-auto max-h-[calc(100dvh-9rem)] w-auto max-w-full rounded-lg object-contain"
           />
         </div>
-        <p aria-live="polite" className="px-4 pb-6 text-center font-semibold">
+        <p aria-live="polite" className="px-4 pb-6 text-center font-bold">
           {photo.name}
           {hasSiblings && ` (${index + 1}/${photos.length})`}
         </p>

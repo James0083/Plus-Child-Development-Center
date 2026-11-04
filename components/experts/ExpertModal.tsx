@@ -35,7 +35,7 @@ export default function ExpertModal({ expert, open, onClose }: ExpertModalProps)
       <div className="p-6">
         <div className="flex items-start justify-between gap-4">
           <div>
-            <h3 id={`expert-${expert.id}-name`} className="text-lg font-semibold">
+            <h3 id={`expert-${expert.id}-name`} className="text-lg font-bold">
               {expert.name}
             </h3>
             <p className="text-sm text-muted">{expert.title}</p>
@@ -45,7 +45,7 @@ export default function ExpertModal({ expert, open, onClose }: ExpertModalProps)
           </button>
         </div>
 
-        <h4 className="mt-6 font-semibold">전문 분야</h4>
+        <h4 className="mt-6 font-bold">전문 분야</h4>
         <ul className="mt-2 flex flex-wrap gap-2">
           {expert.specialties.map((specialty) => (
             <li key={specialty}>
@@ -54,14 +54,14 @@ export default function ExpertModal({ expert, open, onClose }: ExpertModalProps)
           ))}
         </ul>
 
-        <h4 className="mt-6 font-semibold">경력</h4>
+        <h4 className="mt-6 font-bold">경력</h4>
         <ul className="mt-2 list-disc space-y-1 pl-5">
           {expert.career.map((item) => (
             <li key={item}>{item}</li>
           ))}
         </ul>
 
-        <h4 className="mt-6 font-semibold">자격증</h4>
+        <h4 className="mt-6 font-bold">자격증</h4>
         <ul className="mt-2 list-disc space-y-1 pl-5">
           {expert.certs.map((cert) => (
             <li key={cert}>{cert}</li>

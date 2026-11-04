@@ -20,12 +20,12 @@ export default function ActivitiesPage() {
         <ul className="grid gap-6 md:grid-cols-2">
           {activities.map((activity) => (
             <li key={activity.id} id={activity.id} className="scroll-mt-24 rounded-2xl bg-white p-6 shadow-sm md:p-8">
-              <h2 className="text-2xl font-semibold">{activity.title}</h2>
+              <h2 className="text-2xl font-extrabold">{activity.title}</h2>
               <div className="mt-2">
                 <Badge tone={activity.tone}>대상: {activity.target}</Badge>
               </div>
               <p className="mt-4">{activity.desc}</p>
-              <h3 className="mt-6 text-lg font-semibold">주요 활동</h3>
+              <h3 className="mt-6 text-lg font-bold">주요 활동</h3>
               <ul className="mt-2 list-disc space-y-1 pl-5">
                 {activity.items.map((item) => (
                   <li key={item}>{item}</li>

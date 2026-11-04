@@ -11,7 +11,7 @@ const ctaItems = [
   { icon: ClipboardList, label: '상담 안내', action: '/consult' },
 ]
 
-const itemClass = 'flex items-center gap-3 rounded-full bg-accent py-2 pl-4 pr-3 font-semibold text-white shadow-lg hover:brightness-110'
+const itemClass = 'flex items-center gap-3 rounded-full bg-accent py-2 pl-4 pr-3 font-bold text-white shadow-lg hover:brightness-110'
 
 export default function FloatingCTA() {
   const [open, setOpen] = useState(false)
@@ -41,7 +41,7 @@ export default function FloatingCTA() {
     <>
       {/* 모바일과 태블릿: 본문을 가리지 않도록 화면 아래에 고정합니다. */}
       <nav data-quick-cta aria-label="빠른 상담" className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 gap-2 border-t border-gray-200 bg-white p-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] lg:hidden">
-        <a href={TEL_HREF} className="flex items-center justify-center gap-2 rounded-lg bg-accent py-3 font-semibold text-white">
+        <a href={TEL_HREF} className="flex items-center justify-center gap-2 rounded-lg bg-accent py-3 font-bold text-white">
           <Phone className="h-5 w-5" aria-hidden />
           전화 연결
         </a>
@@ -49,7 +49,7 @@ export default function FloatingCTA() {
           href={KAKAO_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 rounded-lg border-2 border-primary py-2.5 font-semibold text-primary-dark"
+          className="flex items-center justify-center gap-2 rounded-lg border-2 border-primary py-2.5 font-bold text-primary-dark"
         >
           <MessageCircle className="h-5 w-5" aria-hidden />
           카카오 상담
@@ -84,7 +84,7 @@ export default function FloatingCTA() {
           type="button"
           onClick={() => setOpen((prev) => !prev)}
           aria-expanded={open}
-          className="flex items-center gap-2 rounded-full bg-accent px-5 py-3.5 font-semibold text-white shadow-lg hover:brightness-110"
+          className="flex items-center gap-2 rounded-full bg-accent px-5 py-3.5 font-bold text-white shadow-lg hover:brightness-110"
         >
           {open ? <X className="h-5 w-5" aria-hidden /> : <MessageCircle className="h-5 w-5" aria-hidden />}
           {open ? '닫기' : '빠른 상담'}

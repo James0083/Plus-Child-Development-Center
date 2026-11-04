@@ -52,7 +52,7 @@ export default function ProgramTab() {
               tabIndex={selected ? 0 : -1}
               onClick={() => select(program.id)}
               onKeyDown={(e) => onKeyDown(e, index)}
-              className={`scroll-mt-24 rounded-lg px-3 py-3 last:col-span-2 xl:last:col-span-1 text-sm font-semibold transition-colors ${
+              className={`scroll-mt-24 rounded-lg px-3 py-3 last:col-span-2 xl:last:col-span-1 text-sm font-bold transition-colors ${
                 selected ? 'bg-primary-dark text-white' : 'bg-white text-ink shadow-xs hover:bg-primary/10'
               }`}
             >
@@ -77,13 +77,13 @@ export default function ProgramTab() {
             <active.icon className="h-8 w-8" />
           </span>
           <div>
-            <h2 className="text-2xl font-semibold">{active.title}</h2>
+            <h2 className="text-2xl font-extrabold">{active.title}</h2>
           </div>
         </div>
         <p className="mt-6 text-base font-normal">{active.desc}</p>
         <div className="mt-6 grid gap-6 md:grid-cols-2">
           <div>
-            <h3 className="text-lg font-semibold">이런 아동에게 도움이 됩니다</h3>
+            <h3 className="text-lg font-bold">이런 아동에게 도움이 됩니다</h3>
             <ul className="mt-2 list-disc space-y-1 pl-5">
               {active.targets.map((item) => (
                 <li key={item}>{item}</li>
@@ -91,7 +91,7 @@ export default function ProgramTab() {
             </ul>
           </div>
           <div>
-            <h3 className="text-lg font-semibold">치료 내용</h3>
+            <h3 className="text-lg font-bold">치료 내용</h3>
             <ul className="mt-2 list-disc space-y-1 pl-5">
               {active.details.map((item) => (
                 <li key={item}>{item}</li>

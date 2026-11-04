@@ -67,7 +67,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 bg-white shadow-xs">
       <nav ref={navRef} aria-label="주 메뉴" className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
         <Link href="/" className="shrink-0 py-2">
-          <Image src="/logo/logo.svg" alt="플러스 아동발달센터" width={829} height={127} preload className="h-7 w-auto lg:h-9" />
+          <Image src="/logo/logo.svg" alt="플러스 아동발달센터" width={829} height={129} preload className="h-7 w-auto lg:h-9" />
         </Link>
 
         <ul className="hidden items-center gap-6 lg:flex">
@@ -78,8 +78,8 @@ export default function Navbar() {
                 aria-current={pathname === item.href ? 'page' : undefined}
                 className={
                   item.highlight
-                    ? 'rounded-lg bg-accent px-4 py-2 font-semibold text-white hover:brightness-110'
-                    : `hover:text-primary-dark ${pathname === item.href ? 'font-semibold text-primary-dark' : ''}`
+                    ? 'rounded-lg bg-accent px-4 py-2 font-bold text-white hover:brightness-110'
+                    : `hover:text-primary-dark ${pathname === item.href ? 'font-bold text-primary-dark' : ''}`
                 }
               >
                 {item.label}
@@ -104,7 +104,7 @@ export default function Navbar() {
         <div role="dialog" aria-modal="true" aria-label="전체 메뉴" className="fixed inset-0 z-50 flex flex-col bg-white lg:hidden">
           <div className="flex h-16 items-center justify-between px-4">
             <Link href="/" onClick={() => setOpenedOn(null)} className="shrink-0 py-2">
-              <Image src="/logo/logo.svg" alt="플러스 아동발달센터" width={829} height={127} className="h-7 w-auto" />
+              <Image src="/logo/logo.svg" alt="플러스 아동발달센터" width={829} height={129} className="h-7 w-auto" />
             </Link>
             <button type="button" onClick={closeMenu} aria-label="메뉴 닫기" className="p-2.5" autoFocus>
               <X className="h-6 w-6" />
@@ -118,7 +118,7 @@ export default function Navbar() {
                     href={item.href}
                     onClick={() => setOpenedOn(null)}
                     aria-current={pathname === item.href ? 'page' : undefined}
-                    className={`block rounded-lg px-4 py-4 text-lg font-semibold ${
+                    className={`block rounded-lg px-4 py-4 text-lg font-bold ${
                       item.highlight ? 'bg-accent text-white' : `hover:bg-primary/10 ${pathname === item.href ? 'text-primary-dark' : ''}`
                     }`}
                   >

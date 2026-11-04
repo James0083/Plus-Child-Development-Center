@@ -13,7 +13,7 @@ export default function LegalDocument({ title, note, sections }: LegalDocumentPr
       <div className="space-y-6 rounded-2xl bg-white p-6 shadow-sm md:p-8">
         {sections.map((section) => (
           <div key={section.title}>
-            <h2 className="text-lg font-semibold">{section.title}</h2>
+            <h2 className="text-lg font-bold">{section.title}</h2>
             <div className="mt-2 space-y-2">
               {section.body.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>

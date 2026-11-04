@@ -2,7 +2,7 @@ import Link from 'next/link'
 import type { ReactNode } from 'react'
 
 const base =
-  'inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 font-semibold transition-colors focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-dark disabled:opacity-60'
+  'inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 font-bold transition-colors focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-dark disabled:opacity-60'
 
 const variants = {
   primary: 'bg-accent text-white hover:brightness-110',

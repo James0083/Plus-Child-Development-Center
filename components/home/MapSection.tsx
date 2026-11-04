@@ -24,11 +24,11 @@ export default function MapSection() {
               alt={`${centerInfo.name} 위치를 표시한 네이버 지도`}
               className="h-auto w-full"
             />
-            <span className="block p-4 text-center font-semibold text-primary-dark">네이버 지도에서 보기<span className="sr-only"> (새 창)</span></span>
+            <span className="block p-4 text-center font-bold text-primary-dark">네이버 지도에서 보기<span className="sr-only"> (새 창)</span></span>
           </a>
 
           <div className="flex flex-col gap-5 md:col-span-2">
-            <h3 className="text-lg font-semibold">{centerInfo.name}</h3>
+            <h3 className="text-lg font-bold">{centerInfo.name}</h3>
             <div className="flex gap-3">
               <MapPin className="h-5 w-5 shrink-0 text-primary-dark" aria-hidden />
               <div>

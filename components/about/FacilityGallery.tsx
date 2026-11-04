@@ -13,7 +13,7 @@ export default function FacilityGallery() {
             imageClassName="aspect-4/3 object-cover"
             objectPosition={facility.position}
           />
-          <h3 className="mt-3 text-lg font-semibold">{facility.name}</h3>
+          <h3 className="mt-3 text-lg font-bold">{facility.name}</h3>
         </li>
       ))}
     </ul>

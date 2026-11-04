@@ -21,7 +21,7 @@ export default function ExpertCard({ expert }: { expert: Expert }) {
         <span className="flex h-32 w-32 items-center justify-center rounded-full bg-primary-light">
           <User className="h-16 w-16 text-white" aria-hidden />
         </span>
-        <span className="mt-4 text-lg font-semibold">{expert.name}</span>
+        <span className="mt-4 text-lg font-bold">{expert.name}</span>
         <span className="mt-1 text-sm text-muted">{expert.title}</span>
         <span className="mt-4 flex flex-wrap justify-center gap-2">
           {expert.specialties.map((specialty) => (

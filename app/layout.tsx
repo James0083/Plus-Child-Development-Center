@@ -1,13 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { Noto_Sans_KR } from "next/font/google";
+import { Nanum_Gothic } from "next/font/google";
 import FloatingCTA from "@/components/layout/FloatingCTA";
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 import "./globals.css";
 
-const noto = Noto_Sans_KR({
+const font = Nanum_Gothic({
   subsets: ["latin"],
-  weight: ["300", "400", "600", "700"],
+  weight: ["400", "700", "800"],
 });
 
 const description =
@@ -46,10 +46,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={`${noto.className} flex min-h-screen flex-col bg-cream text-ink antialiased`}>
+      <body className={`${font.className} flex min-h-screen flex-col bg-cream text-ink antialiased`}>
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-2 focus:z-60 focus:rounded-lg focus:bg-white focus:px-4 focus:py-3 focus:font-semibold focus:text-primary-dark focus:shadow-lg"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-2 focus:z-60 focus:rounded-lg focus:bg-white focus:px-4 focus:py-3 focus:font-bold focus:text-primary-dark focus:shadow-lg"
         >
           본문 바로가기
         </a>

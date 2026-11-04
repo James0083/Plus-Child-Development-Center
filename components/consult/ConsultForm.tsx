@@ -66,7 +66,7 @@ function Field({ name, label, required, error, children }: {
 }) {
   return (
     <div>
-      <label htmlFor={name} className="font-semibold">
+      <label htmlFor={name} className="font-bold">
         {label}
         {required && <span aria-hidden className="ml-1 text-red-700">*</span>}
       </label>
@@ -149,7 +149,7 @@ export default function ConsultForm() {
     return (
       <div ref={doneRef} tabIndex={-1} role="status" className="rounded-2xl bg-white p-10 text-center shadow-sm outline-hidden">
         <CheckCircle2 className="mx-auto h-12 w-12 text-mint" aria-hidden />
-        <p className="mt-4 whitespace-pre-line text-lg font-semibold">
+        <p className="mt-4 whitespace-pre-line text-lg font-bold">
           {'상담 신청이 완료되었습니다.\n영업일 기준 1~2일 내로 연락드리겠습니다. 감사합니다.'}
         </p>
       </div>
@@ -193,7 +193,7 @@ export default function ConsultForm() {
       </Field>
 
       <fieldset role="radiogroup" aria-required aria-invalid={errors.gender ? true : undefined} aria-describedby={errors.gender ? 'gender-error' : undefined}>
-        <legend className="font-semibold">
+        <legend className="font-bold">
           성별<span aria-hidden className="ml-1 text-red-700">*</span>
         </legend>
         <div className="mt-1 flex gap-6">
@@ -272,7 +272,7 @@ export default function ConsultForm() {
           <li>전달 방법: 입력한 내용은 센터 이메일로 전송됩니다.</li>
           <li>보유 기간: {PRIVACY_RETENTION}</li>
         </ul>
-        <label className="mt-1 flex items-start gap-2 py-2.5 font-semibold">
+        <label className="mt-1 flex items-start gap-2 py-2.5 font-bold">
           <input
             type="checkbox"
             className="mt-0.5 h-5 w-5 shrink-0 accent-primary"
@@ -297,10 +297,10 @@ export default function ConsultForm() {
 
       {sendError && (
         <div role="alert" className="rounded-lg bg-accent/15 p-4 text-sm">
-          <p className="font-semibold">{sendError}</p>
+          <p className="font-bold">{sendError}</p>
           <p className="mt-1">
             급하시면{' '}
-            <a href={TEL_HREF} className="font-semibold underline">
+            <a href={TEL_HREF} className="font-bold underline">
               {centerInfo.phone}
             </a>
             로 전화해 주세요.
