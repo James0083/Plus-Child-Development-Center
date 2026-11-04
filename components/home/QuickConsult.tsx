@@ -1,6 +1,6 @@
 import { Phone } from 'lucide-react'
 import Button from '@/components/ui/Button'
-import { TEL_HREF } from '@/lib/constants'
+import { PHONE, TEL_HREF } from '@/lib/constants'
 
 export default function QuickConsult() {
   return (
@@ -14,7 +14,7 @@ export default function QuickConsult() {
           <Button href="/consult">상담 신청하기</Button>
           <Button href={TEL_HREF} variant="secondary">
             <Phone className="h-5 w-5" />
-            전화 연결
+            {PHONE}
           </Button>
         </div>
       </div>

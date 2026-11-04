@@ -14,7 +14,7 @@ export default function StatsSection() {
         {stats.map(({ icon: Icon, value, label }) => (
           <li key={label} className="flex flex-col items-center text-center">
             <Icon className="mb-3 h-8 w-8" aria-hidden />
-            <p className="text-4xl font-bold">{value}</p>
+            <p className="whitespace-nowrap text-3xl font-bold lg:text-4xl">{value}</p>
             <p className="mt-2 text-sm">{label}</p>
           </li>
         ))}
