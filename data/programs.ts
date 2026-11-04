@@ -10,9 +10,9 @@ export const programs: {
   title: string
   desc: string
   color: ProgramColor
-  ages?: string
   targets: string[]
   details: string[]
+  session?: string
 }[] = [
   {
     id: 'language',
@@ -92,7 +92,7 @@ export const programs: {
   {
     id: 'arts',
     icon: Palette,
-    title: '미술치료',
+    title: '미술심리치료',
     desc: '좋아하는 미술매체로 작품을 완성하며 성취감을 얻고 자신의 감정을 표현합니다.',
     color: 'primary',
     targets: [
@@ -111,10 +111,9 @@ export const programs: {
   {
     id: 'social',
     icon: Users,
-    title: '사회성 치료',
+    title: '사회성(짝, 그룹) 치료',
     desc: '4~8명의 친구들과 함께 사회적 기술을 배우고 적용하는 프로그램입니다.',
     color: 'mint',
-    ages: '만 4세~초등 고학년',
     targets: [
       '또래 관계에 어려움을 보이는 아동',
       '단체 활동에 참여하기 어렵고 혼자 노는 아동',
@@ -124,10 +123,10 @@ export const programs: {
     ],
     details: [
       '연령 구분: 만 4~5세, 만 6~7세, 초등 저학년, 초등 고학년',
-      '그룹 또는 짝으로 구성하며, 치료사 2명이 함께 진행합니다.',
       '아동 특성과 사회적 행동 발달 정도에 따라 목표가 조금씩 달라집니다.',
       '상호작용 시도, 반응하기, 대화 주고받기와 유지하기, 감정 표현 및 조절하기, 상황에 적절한 행동하기 등으로 구성됩니다.',
     ],
+    session: '1회 60분 (치료사 2명이 함께 진행)',
   },
   {
     id: 'behavior',

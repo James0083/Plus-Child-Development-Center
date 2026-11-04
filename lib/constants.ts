@@ -15,6 +15,7 @@ export const centerInfo = {
   addressLot: ADDRESS_LOT,
   phone: PHONE,
   parking: '건물 앞, 건물 1층',
+  amenities: ['장애인 전용 주차구역', '경사로', '무선 인터넷(Wi-Fi)'],
   busStops: [
     { name: '광주성남하남산림조합', walk: '도보 2분' },
     { name: '광주 중앙고등학교', walk: '도보 3분' },

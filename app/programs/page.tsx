@@ -8,7 +8,7 @@ export const metadata: Metadata = { title: '프로그램 안내' }
 export default function ProgramsPage() {
   return (
     <section className="mx-auto max-w-6xl px-4 py-16">
-      <SectionTitle as="h1" title="프로그램 안내" description="아이의 발달 특성에 맞는 프로그램을 확인해 보세요." />
+      <SectionTitle as="h1" title="프로그램 안내" description="연령을 따로 정하지 않고, 아이의 발달 수준에 맞춰 평가한 뒤 치료 계획을 세웁니다." />
       <ProgramTab />
       <div className="mt-10 text-center">
         <Button href="/voucher" variant="outline">

@@ -1,9 +1,10 @@
-import { ChevronDown, MessageCircle, Phone } from 'lucide-react'
+import { MessageCircle, Phone } from 'lucide-react'
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import ConsultForm from '@/components/consult/ConsultForm'
 import Button from '@/components/ui/Button'
 import SectionTitle from '@/components/ui/SectionTitle'
-import { consultSteps, faqs } from '@/data/consult'
+import { consultFeeNote, consultFees, consultSteps } from '@/data/consult'
 import { centerInfo, CONSULT_FORM_ENABLED, TEL_HREF } from '@/lib/constants'
 
 export const metadata: Metadata = { title: '상담 신청' }
@@ -32,7 +33,7 @@ export default function ConsultPage() {
         </div>
       </div>
 
-      <h2 className="text-2xl font-semibold">상담은 이렇게 진행됩니다</h2>
+      <h2 className="text-2xl font-semibold">상담 및 이용 절차</h2>
       <ol className="mb-10 mt-4 space-y-3">
         {consultSteps.map((step, index) => (
           <li key={step.title} className="flex gap-3 rounded-lg bg-white p-4 shadow-xs">
@@ -47,20 +48,23 @@ export default function ConsultPage() {
         ))}
       </ol>
 
-      {CONSULT_FORM_ENABLED && <ConsultForm />}
-
-      <h2 className="mt-12 text-2xl font-semibold">자주 묻는 질문</h2>
-      <div className="mt-4 divide-y divide-gray-200 rounded-2xl bg-white shadow-sm">
-        {faqs.map((faq) => (
-          <details key={faq.question} className="group p-5">
-            <summary className="flex cursor-pointer list-none items-center justify-between gap-3 font-semibold [&::-webkit-details-marker]:hidden">
-              {faq.question}
-              <ChevronDown className="h-5 w-5 shrink-0 text-primary-dark transition-transform group-open:rotate-180" aria-hidden />
-            </summary>
-            <p className="mt-3">{faq.answer}</p>
-          </details>
-        ))}
+      <h2 className="text-2xl font-semibold">비용 안내</h2>
+      <div className="mb-10 mt-4 rounded-2xl bg-white p-6 shadow-sm">
+        <dl className="divide-y divide-gray-200">
+          {consultFees.map((fee) => (
+            <div key={fee.item} className="flex flex-col gap-1 py-3 first:pt-0 md:flex-row md:justify-between md:gap-4">
+              <dt className="font-semibold">{fee.item}</dt>
+              <dd>{fee.fee}</dd>
+            </div>
+          ))}
+        </dl>
+        <p className="mt-3 text-sm text-muted">{consultFeeNote}</p>
+        <Link href="/voucher" className="inline-block py-2.5 text-sm font-semibold text-primary-dark underline">
+          바우처 안내 보기
+        </Link>
       </div>
+
+      {CONSULT_FORM_ENABLED && <ConsultForm />}
     </section>
   )
 }

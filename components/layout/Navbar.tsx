@@ -5,15 +5,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
-import { notices } from '@/data/notices'
 
 const navItems = [
   { label: '센터 소개', href: '/about' },
   { label: '프로그램 안내', href: '/programs' },
   { label: '활동 안내', href: '/activities' },
   { label: '바우처 안내', href: '/voucher' },
-  // 공지를 올리기 전에는 빈 페이지로 안내하지 않습니다.
-  ...(notices.length > 0 ? [{ label: '공지사항', href: '/notice' }] : []),
   { label: '상담 신청', href: '/consult', highlight: true },
 ]
 

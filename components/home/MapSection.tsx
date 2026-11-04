@@ -1,4 +1,4 @@
-import { Bus, Car, Clock, MapPin, MessageCircle, Phone } from 'lucide-react'
+import { Accessibility, Bus, Car, Clock, MapPin, MessageCircle, Phone } from 'lucide-react'
 import Image from 'next/image'
 import Button from '@/components/ui/Button'
 import SectionTitle from '@/components/ui/SectionTitle'
@@ -39,6 +39,10 @@ export default function MapSection() {
             <div className="flex gap-3">
               <Car className="h-5 w-5 shrink-0 text-primary-dark" aria-hidden />
               <p>주차장: {centerInfo.parking}</p>
+            </div>
+            <div className="flex gap-3">
+              <Accessibility className="h-5 w-5 shrink-0 text-primary-dark" aria-hidden />
+              <p>편의시설: {centerInfo.amenities.join(', ')}</p>
             </div>
             <div className="flex gap-3">
               <Bus className="h-5 w-5 shrink-0 text-primary-dark" aria-hidden />

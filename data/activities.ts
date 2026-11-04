@@ -27,3 +27,26 @@ export const activities: {
 
 export const activityNote =
   '이용 자격과 시간은 주소지 주민센터나 복지로에서 확인할 수 있으며, 센터 상담으로도 안내해 드립니다.'
+
+export const schoolReady = {
+  id: 'school-ready',
+  label: '예비 초등 학교준비 프로그램',
+  title: '두근두근, 학교 갈 준비!',
+  target: '초등학교 입학을 앞둔 7세 아동',
+  focus: ['학교생활 적응', '또래관계·사회성', '집중력·자기조절', '학습 및 생활습관'],
+  details: [
+    { label: '모집 대상', value: '2027년 입학 예정 아동' },
+    { label: '운영 기간', value: '10월 중순 ~ 2월 말' },
+    { label: '수업 시간', value: '매주 수요일 3시 20분 / 금요일 오후 6시' },
+    { label: '수업 구성', value: '50분 수업 + 10분 보호자 상담 (총 60분)' },
+    { label: '장소', value: '플러스 아동발달센터' },
+    { label: '문의', value: '센터 사무실' },
+  ],
+  closing: '즐거운 첫 학교생활, 차근차근 함께 준비해요!',
+  poster: {
+    src: '/images/activities/school-ready.jpg',
+    width: 848,
+    height: 1200,
+    alt: '두근두근, 학교 갈 준비! 예비 초등 학교준비 프로그램 포스터',
+  },
+}

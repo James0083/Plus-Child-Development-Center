@@ -1,6 +1,5 @@
 import { ArrowRight, Compass } from 'lucide-react'
 import Link from 'next/link'
-import Badge from '@/components/ui/Badge'
 import SectionTitle from '@/components/ui/SectionTitle'
 import { programIconTone, programs } from '@/data/programs'
 
@@ -14,15 +13,12 @@ export default function ProgramCards() {
             key={program.id}
             className="flex flex-col rounded-2xl bg-white p-6 shadow-sm transition duration-200 hover:scale-105 hover:shadow-lg"
           >
-            <div className="flex items-center justify-between">
-              <span
-                aria-hidden
-                className={`flex h-12 w-12 items-center justify-center rounded-xl ${programIconTone[program.color]}`}
-              >
-                <program.icon className="h-6 w-6" />
-              </span>
-              {program.ages && <Badge tone={program.color}>{program.ages}</Badge>}
-            </div>
+            <span
+              aria-hidden
+              className={`flex h-12 w-12 items-center justify-center rounded-xl ${programIconTone[program.color]}`}
+            >
+              <program.icon className="h-6 w-6" />
+            </span>
             <h3 className="mt-4 text-lg font-semibold">{program.title}</h3>
             <p className="mt-2 flex-1 text-base font-normal">{program.desc}</p>
             <Link
