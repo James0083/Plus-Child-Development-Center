@@ -1,9 +1,10 @@
 // 상담 신청을 센터 메일로 보내는 Worker입니다. 그 외 모든 페이지는 Cloudflare가 정적 파일로 응답합니다.
 // 수신 주소는 wrangler.jsonc의 send_email 설정에서도 같은 주소로 제한합니다.
+import { NAME_PATTERN, PHONE_PATTERN } from '../lib/consultRules'
+
 const CENTER_EMAIL = 'pluscenter4052@naver.com'
 const MAX_BODY_BYTES = 8000
 const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/
-const PHONE_PATTERN = /^0\d{1,2}-?\d{3,4}-?\d{4}$/
 
 type Env = {
   EMAIL: {
@@ -36,10 +37,12 @@ function parseRequest(body: Record<string, unknown> | null): ConsultRequest | nu
   const preferDate = body.preferDate ?? ''
   const valid =
     isText(childName, 50) &&
+    NAME_PATTERN.test(childName.trim()) &&
     isText(birthDate, 10) &&
     DATE_PATTERN.test(birthDate) &&
     (gender === '남' || gender === '여') &&
     isText(parentName, 50) &&
+    NAME_PATTERN.test(parentName.trim()) &&
     isText(phone, 20) &&
     PHONE_PATTERN.test(phone) &&
     isText(content, 2000) &&

@@ -3,9 +3,10 @@
 import { CheckCircle2 } from 'lucide-react'
 import Link from 'next/link'
 import Script from 'next/script'
-import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
+import { useCallback, useEffect, useRef, useState, type ChangeEvent, type ReactNode } from 'react'
 import { useForm } from 'react-hook-form'
 import Button from '@/components/ui/Button'
+import { formatPhone, NAME_PATTERN, PHONE_PATTERN, sanitizeName } from '@/lib/consultRules'
 import { centerInfo, CONSULT_FORM_DEMO, PRIVACY_RETENTION, TEL_HREF, TURNSTILE_SITE_KEY } from '@/lib/constants'
 
 type TurnstileOptions = {
@@ -174,6 +175,34 @@ export default function ConsultForm() {
     )
   }
 
+  // 입력값을 정리한 뒤 폼에 넘겨, 화면과 전송 값이 같게 합니다.
+  const cleaned = (clean: (value: string) => string, onChange: (event: ChangeEvent<HTMLInputElement>) => unknown) => ({
+    onChange: (event: ChangeEvent<HTMLInputElement>) => {
+      const value = clean(event.target.value)
+      if (value !== event.target.value) event.target.value = value
+      return onChange(event)
+    },
+  })
+
+  const nameField = (name: 'childName' | 'parentName', blankMessage: string) => {
+    const field = register(name, {
+      validate: (value) =>
+        value.trim().length === 0
+          ? blankMessage
+          : NAME_PATTERN.test(value.trim()) || '이름은 한글 또는 영어로 입력해 주세요.',
+    })
+    return { ...field, ...cleaned(sanitizeName, field.onChange) }
+  }
+
+  const phoneRegister = register('phone', {
+    required: '연락처를 입력해 주세요.',
+    pattern: {
+      value: PHONE_PATTERN,
+      message: '연락처 형식을 확인해 주세요. (예: 010-0000-0000)',
+    },
+  })
+  const phoneField = { ...phoneRegister, ...cleaned(formatPhone, phoneRegister.onChange) }
+
   const invalidProps = (name: keyof ConsultFormValues) => ({
     'aria-required': name === 'preferDate' ? undefined : true,
     'aria-invalid': errors[name] ? true : undefined,
@@ -200,7 +229,8 @@ export default function ConsultForm() {
           autoComplete="off"
           className={inputClass}
           {...invalidProps('childName')}
-          {...register('childName', { validate: notBlank('아동 이름을 입력해 주세요.') })}
+          maxLength={50}
+          {...nameField('childName', '아동 이름을 입력해 주세요.')}
         />
       </Field>
 
@@ -252,7 +282,8 @@ export default function ConsultForm() {
           autoComplete="name"
           className={inputClass}
           {...invalidProps('parentName')}
-          {...register('parentName', { validate: notBlank('보호자 이름을 입력해 주세요.') })}
+          maxLength={50}
+          {...nameField('parentName', '보호자 이름을 입력해 주세요.')}
         />
       </Field>
 
@@ -261,16 +292,12 @@ export default function ConsultForm() {
           id="phone"
           type="tel"
           autoComplete="tel"
-          placeholder="010-0000-0000"
+          placeholder="숫자만 입력해 주세요"
           className={inputClass}
           {...invalidProps('phone')}
-          {...register('phone', {
-            required: '연락처를 입력해 주세요.',
-            pattern: {
-              value: /^0\d{1,2}-?\d{3,4}-?\d{4}$/,
-              message: '연락처 형식을 확인해 주세요. (예: 010-0000-0000)',
-            },
-          })}
+          inputMode="numeric"
+          maxLength={13}
+          {...phoneField}
         />
       </Field>
 
