@@ -39,7 +39,7 @@ export default function TimetableSection() {
             </tbody>
           </table>
         </div>
-        <p className="mt-4 text-center text-sm font-light text-muted">
+        <p className="mt-4 text-center text-sm text-muted">
           운영시간: {regular} / {closed}
         </p>
       </div>

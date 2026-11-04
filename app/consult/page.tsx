@@ -1,4 +1,4 @@
-import { MessageCircle, Phone } from 'lucide-react'
+import { ChevronDown, MessageCircle, Phone } from 'lucide-react'
 import type { Metadata } from 'next'
 import ConsultForm from '@/components/consult/ConsultForm'
 import Button from '@/components/ui/Button'
@@ -17,7 +17,7 @@ export default function ConsultPage() {
 
       <div className="mb-10 rounded-2xl bg-white p-6 text-center shadow-sm md:p-8">
         <p className="text-2xl font-semibold text-primary-dark">{centerInfo.phone}</p>
-        <p className="mt-2 text-sm font-light text-muted">
+        <p className="mt-2 text-sm text-muted">
           {regular} / {closed}
         </p>
         <div className="mt-5 flex flex-col justify-center gap-3 md:flex-row">
@@ -32,7 +32,7 @@ export default function ConsultPage() {
         </div>
       </div>
 
-      <h2 className="text-lg font-semibold">상담은 이렇게 진행됩니다</h2>
+      <h2 className="text-2xl font-semibold">상담은 이렇게 진행됩니다</h2>
       <ol className="mb-10 mt-4 space-y-3">
         {consultSteps.map((step, index) => (
           <li key={step.title} className="flex gap-3 rounded-lg bg-white p-4 shadow-xs">
@@ -49,11 +49,14 @@ export default function ConsultPage() {
 
       {CONSULT_FORM_ENABLED && <ConsultForm />}
 
-      <h2 className="mt-12 text-lg font-semibold">자주 묻는 질문</h2>
+      <h2 className="mt-12 text-2xl font-semibold">자주 묻는 질문</h2>
       <div className="mt-4 divide-y divide-gray-200 rounded-2xl bg-white shadow-sm">
         {faqs.map((faq) => (
-          <details key={faq.question} className="p-5">
-            <summary className="cursor-pointer font-semibold">{faq.question}</summary>
+          <details key={faq.question} className="group p-5">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-3 font-semibold [&::-webkit-details-marker]:hidden">
+              {faq.question}
+              <ChevronDown className="h-5 w-5 shrink-0 text-primary-dark transition-transform group-open:rotate-180" aria-hidden />
+            </summary>
             <p className="mt-3">{faq.answer}</p>
           </details>
         ))}

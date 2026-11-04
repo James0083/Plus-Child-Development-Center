@@ -19,7 +19,7 @@ export default function ActivitiesPage() {
         <ul className="grid gap-6 md:grid-cols-2">
           {activities.map((activity) => (
             <li key={activity.id} id={activity.id} className="scroll-mt-24 rounded-2xl bg-white p-6 shadow-sm md:p-8">
-              <h2 className="text-2xl font-semibold lg:text-3xl">{activity.title}</h2>
+              <h2 className="text-2xl font-semibold">{activity.title}</h2>
               <div className="mt-2">
                 <Badge tone={activity.tone}>대상: {activity.target}</Badge>
               </div>
@@ -33,7 +33,7 @@ export default function ActivitiesPage() {
             </li>
           ))}
         </ul>
-        <p className="mt-6 text-center text-sm font-light text-muted">{activityNote}</p>
+        <p className="mt-6 text-center text-sm text-muted">{activityNote}</p>
         <div className="mt-6 text-center">
           <Button href="/consult">이용 상담 신청</Button>
         </div>

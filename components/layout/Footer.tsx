@@ -7,7 +7,7 @@ export default function Footer() {
       {/* 하단 여백: 페이지 끝에서 고정 버튼이 링크를 가리지 않게 합니다. */}
       <div className="mx-auto max-w-6xl px-4 pb-24 pt-10 text-sm">
         <p className="text-lg font-semibold text-white">{footerInfo.name}</p>
-        <dl className="mt-4 grid gap-1 md:grid-cols-2">
+        <dl className="mt-4 grid gap-1 lg:grid-cols-2">
           <div>
             <dt className="inline">대표(센터장) </dt>
             <dd className="inline">{footerInfo.director}</dd>

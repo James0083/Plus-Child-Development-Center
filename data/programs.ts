@@ -1,10 +1,12 @@
-export type ProgramColor = 'primary' | 'mint' | 'accent'
+import { Brain, Hand, MessagesSquare, Palette, Target, ToyBrick, Users, type LucideIcon } from 'lucide-react'
+
+export type ProgramColor = 'primary' | 'mint'
 
 export const programSession = '1회 50분 (치료 40분 + 부모 상담 10분)'
 
 export const programs: {
   id: string
-  icon: string
+  icon: LucideIcon
   title: string
   desc: string
   color: ProgramColor
@@ -14,7 +16,7 @@ export const programs: {
 }[] = [
   {
     id: 'language',
-    icon: '💬',
+    icon: MessagesSquare,
     title: '언어치료',
     desc: '언어평가로 아동에게 필요한 목표를 세우고, 언어와 비언어 의사소통이 향상되도록 돕습니다.',
     color: 'primary',
@@ -33,7 +35,7 @@ export const programs: {
   },
   {
     id: 'play',
-    icon: '🎮',
+    icon: ToyBrick,
     title: '놀이치료',
     desc: '다양한 놀잇감과 치료사와의 상호작용으로 감정을 표현하고 사회성, 인지, 정서 발달을 돕습니다.',
     color: 'mint',
@@ -55,7 +57,7 @@ export const programs: {
   },
   {
     id: 'cognitive',
-    icon: '🧠',
+    icon: Brain,
     title: '인지학습치료',
     desc: '기본적인 학습 태도를 갖추고 학습 능력, 자기표현 능력, 자신감을 키웁니다.',
     color: 'primary',
@@ -72,7 +74,7 @@ export const programs: {
   },
   {
     id: 'sensory',
-    icon: '✋',
+    icon: Hand,
     title: '감각통합치료',
     desc: '다양한 감각 정보를 통합하고 조직화해 주변 환경에 적절하게 반응하도록 돕습니다.',
     color: 'mint',
@@ -89,10 +91,10 @@ export const programs: {
   },
   {
     id: 'arts',
-    icon: '🎨',
+    icon: Palette,
     title: '미술치료',
     desc: '좋아하는 미술매체로 작품을 완성하며 성취감을 얻고 자신의 감정을 표현합니다.',
-    color: 'accent',
+    color: 'primary',
     targets: [
       '심리적 어려움이 있는 아동',
       '표현 방법이 서툴러 자신의 감정과 상황 표현이 적절치 않은 아동',
@@ -108,10 +110,10 @@ export const programs: {
   },
   {
     id: 'social',
-    icon: '🤝',
+    icon: Users,
     title: '사회성 치료',
     desc: '4~8명의 친구들과 함께 사회적 기술을 배우고 적용하는 프로그램입니다.',
-    color: 'primary',
+    color: 'mint',
     ages: '만 4세~초등 고학년',
     targets: [
       '또래 관계에 어려움을 보이는 아동',
@@ -129,10 +131,10 @@ export const programs: {
   },
   {
     id: 'behavior',
-    icon: '🧩',
+    icon: Target,
     title: '행동치료',
     desc: '행동이 나타나는 원인과 상황을 파악하고, 상황에 맞는 행동을 배워 일상에서 사용하도록 돕습니다.',
-    color: 'mint',
+    color: 'primary',
     targets: [
       '떼쓰기, 공격, 자해 등 문제행동을 보이는 아동',
       '상황에 맞지 않는 행동을 반복하는 아동',
@@ -147,8 +149,7 @@ export const programs: {
   },
 ]
 
-export const programIconBg: Record<ProgramColor, string> = {
-  primary: 'bg-primary/10',
-  mint: 'bg-mint/15',
-  accent: 'bg-accent/10',
+export const programIconTone: Record<ProgramColor, string> = {
+  primary: 'bg-primary/10 text-primary-dark',
+  mint: 'bg-mint/15 text-mint',
 }

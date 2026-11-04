@@ -38,7 +38,7 @@ export default function ExpertModal({ expert, open, onClose }: ExpertModalProps)
             <h3 id={`expert-${expert.id}-name`} className="text-lg font-semibold">
               {expert.name}
             </h3>
-            <p className="text-sm font-light text-muted">{expert.title}</p>
+            <p className="text-sm text-muted">{expert.title}</p>
           </div>
           <button type="button" onClick={onClose} aria-label="닫기" className="p-1">
             <X className="h-5 w-5" />

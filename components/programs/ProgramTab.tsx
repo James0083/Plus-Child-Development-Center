@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, type KeyboardEvent } from 'react'
 import Badge from '@/components/ui/Badge'
 import Button from '@/components/ui/Button'
-import { programIconBg, programSession, programs } from '@/data/programs'
+import { programIconTone, programSession, programs } from '@/data/programs'
 
 export default function ProgramTab() {
   const [activeId, setActiveId] = useState(programs[0].id)
@@ -36,7 +36,7 @@ export default function ProgramTab() {
 
   return (
     <div>
-      <div role="tablist" aria-label="프로그램 목록" className="grid grid-cols-2 gap-2 md:grid-cols-3 xl:grid-cols-7">
+      <div role="tablist" aria-label="프로그램 목록" className="grid grid-cols-2 gap-2 md:grid-cols-4 xl:grid-cols-7">
         {programs.map((program, index) => {
           const selected = program.id === active.id
           return (
@@ -53,7 +53,7 @@ export default function ProgramTab() {
               tabIndex={selected ? 0 : -1}
               onClick={() => select(program.id)}
               onKeyDown={(e) => onKeyDown(e, index)}
-              className={`scroll-mt-24 rounded-lg px-3 py-3 text-sm font-semibold transition-colors ${
+              className={`scroll-mt-24 rounded-lg px-3 py-3 last:col-span-2 xl:last:col-span-1 text-sm font-semibold transition-colors ${
                 selected ? 'bg-primary-dark text-white' : 'bg-white text-ink shadow-xs hover:bg-primary/10'
               }`}
             >
@@ -73,12 +73,12 @@ export default function ProgramTab() {
         <div className="flex flex-wrap items-center gap-4">
           <span
             aria-hidden
-            className={`flex h-16 w-16 items-center justify-center rounded-2xl text-3xl ${programIconBg[active.color]}`}
+            className={`flex h-16 w-16 items-center justify-center rounded-2xl ${programIconTone[active.color]}`}
           >
-            {active.icon}
+            <active.icon className="h-8 w-8" />
           </span>
           <div>
-            <h2 className="text-2xl font-semibold lg:text-3xl">{active.title}</h2>
+            <h2 className="text-2xl font-semibold">{active.title}</h2>
             {active.ages && (
               <div className="mt-2">
                 <Badge tone={active.color}>대상: {active.ages}</Badge>
@@ -105,7 +105,7 @@ export default function ProgramTab() {
             </ul>
           </div>
         </div>
-        <p className="mt-6 text-sm font-light text-muted">회기 구성: {programSession}</p>
+        <p className="mt-6 text-sm text-muted">회기 구성: {programSession}</p>
         <Button href="/consult" className="mt-6">
           {active.title} 상담 신청
         </Button>

@@ -1,3 +1,5 @@
+import { Award, Handshake, Heart, Sprout } from 'lucide-react'
+
 export const history = [
   { date: '2000.1.15.', event: '우&유 아동발달 연구소' },
   { date: '2005.1.29.', event: '장애전담 어린이집 인가' },
@@ -11,7 +13,7 @@ export const staff = {
     { name: '언어', count: 13 },
     { name: '인지', count: 4 },
     { name: '놀이', count: 4 },
-    { name: '감통', count: 2 },
+    { name: '감각통합', count: 2 },
     { name: '미술', count: 2 },
   ],
 }
@@ -39,8 +41,8 @@ export const facilities = [
 
 // [DUMMY]
 export const values = [
-  { icon: '🤝', title: '신뢰', desc: '부모님과 함께 투명하게 소통합니다.' },
-  { icon: '🎯', title: '전문성', desc: '자격을 갖춘 치료사가 근거 기반으로 치료합니다.' },
-  { icon: '❤️', title: '따뜻함', desc: '아이와 가족을 진심으로 돌봅니다.' },
-  { icon: '🌱', title: '성장 지향', desc: '작은 변화도 함께 기뻐하고 지속적으로 발전합니다.' },
+  { icon: Handshake, title: '신뢰', desc: '부모님과 함께 투명하게 소통합니다.' },
+  { icon: Award, title: '전문성', desc: '자격을 갖춘 치료사가 근거 기반으로 치료합니다.' },
+  { icon: Heart, title: '따뜻함', desc: '아이와 가족을 진심으로 돌봅니다.' },
+  { icon: Sprout, title: '성장 지향', desc: '작은 변화도 함께 기뻐하고 지속적으로 발전합니다.' },
 ]

@@ -33,7 +33,7 @@ export default function MapSection() {
               <MapPin className="h-5 w-5 shrink-0 text-primary-dark" aria-hidden />
               <div>
                 <p>{centerInfo.address}</p>
-                <p className="mt-1 text-sm font-light text-muted">지번: {centerInfo.addressLot}</p>
+                <p className="mt-1 text-sm text-muted">지번: {centerInfo.addressLot}</p>
               </div>
             </div>
             <div className="flex gap-3">
@@ -66,7 +66,7 @@ export default function MapSection() {
                 <li>{centerInfo.hours.closed}</li>
               </ul>
             </div>
-            <Button href={centerInfo.kakao} className="mt-auto">
+            <Button href={centerInfo.kakao}>
               <MessageCircle className="h-5 w-5" />
               카카오 채널 상담
             </Button>

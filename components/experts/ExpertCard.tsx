@@ -22,7 +22,7 @@ export default function ExpertCard({ expert }: { expert: Expert }) {
           <User className="h-16 w-16 text-white" aria-hidden />
         </span>
         <span className="mt-4 text-lg font-semibold">{expert.name}</span>
-        <span className="mt-1 text-sm font-light text-muted">{expert.title}</span>
+        <span className="mt-1 text-sm text-muted">{expert.title}</span>
         <span className="mt-4 flex flex-wrap justify-center gap-2">
           {expert.specialties.map((specialty) => (
             <Badge key={specialty}>{specialty}</Badge>

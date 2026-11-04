@@ -7,8 +7,8 @@ type SectionTitleProps = {
 export default function SectionTitle({ title, description, as: Tag = 'h2' }: SectionTitleProps) {
   return (
     <div className="mb-10 text-center">
-      <Tag className="text-2xl font-semibold lg:text-3xl">{title}</Tag>
-      {description && <p className="mt-3 text-sm font-light text-muted">{description}</p>}
+      <Tag className={`text-2xl font-semibold ${Tag === 'h1' ? 'lg:text-3xl' : ''}`}>{title}</Tag>
+      {description && <p className="mt-3 text-sm text-muted">{description}</p>}
     </div>
   )
 }

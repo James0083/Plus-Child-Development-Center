@@ -29,7 +29,7 @@ export default function NoticePage() {
                 <Badge tone={categoryTone[notice.category]}>{notice.category}</Badge>
               </div>
               <p className="flex-1 font-semibold">{notice.title}</p>
-              <time dateTime={notice.date} className="text-sm font-light text-muted">
+              <time dateTime={notice.date} className="text-sm text-muted">
                 {notice.date}
               </time>
             </li>

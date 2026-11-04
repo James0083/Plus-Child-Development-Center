@@ -22,7 +22,7 @@ export default function AboutPage() {
             <User className="h-16 w-16 text-white" aria-hidden />
           </div>
           <div>
-            <h2 className="text-lg font-semibold">인사말</h2>
+            <h2 className="text-2xl font-semibold">인사말</h2>
             <div className="mt-3 space-y-3">
               {greeting.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
@@ -38,9 +38,9 @@ export default function AboutPage() {
       <section className="bg-white">
         <div className="mx-auto max-w-6xl px-4 py-16">
           <SectionTitle title="전문 치료사" description={`전체 치료사 ${staff.total}명이 함께합니다.`} />
-          <ul className="grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-5">
+          <ul className="grid grid-cols-2 gap-4 md:grid-cols-5">
             {staff.fields.map((field) => (
-              <li key={field.name} className="rounded-2xl bg-cream p-6 text-center">
+              <li key={field.name} className="rounded-2xl bg-cream p-6 text-center last:col-span-2 md:last:col-span-1">
                 <p className="text-lg font-semibold">{field.name}</p>
                 <p className="mt-1 text-2xl font-bold text-primary-dark">{field.count}명</p>
               </li>
@@ -54,8 +54,8 @@ export default function AboutPage() {
         <ul className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           {values.map((value) => (
             <li key={value.title} className="rounded-2xl bg-white p-6 text-center shadow-sm">
-              <span aria-hidden className="text-4xl">
-                {value.icon}
+              <span aria-hidden className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-primary-soft text-primary-dark">
+                <value.icon className="h-7 w-7" />
               </span>
               <h3 className="mt-3 text-lg font-semibold">{value.title}</h3>
               <p className="mt-2">{value.desc}</p>
@@ -67,7 +67,7 @@ export default function AboutPage() {
       <section className="bg-white">
         <div className="mx-auto max-w-3xl px-4 py-16">
           <SectionTitle title="센터 연혁" />
-          <ol className="border-l-2 border-primary-light">
+          <ol className="mx-auto w-fit border-l-2 border-primary-light">
             {history.map((item) => (
               <li key={item.date} className="relative pb-8 pl-8 last:pb-0">
                 <span className="absolute left-[-7px] top-1.5 h-3 w-3 rounded-full bg-primary" aria-hidden />
@@ -81,7 +81,7 @@ export default function AboutPage() {
 
       <section className="mx-auto max-w-6xl px-4 py-16">
         <SectionTitle title="협력기관" />
-        <ul className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <ul className="grid gap-6 md:grid-cols-3">
           {partners.map((partner) => (
             <li key={partner.name} className="rounded-2xl bg-white p-6 shadow-sm">
               <h3 className="text-lg font-semibold">{partner.name}</h3>
@@ -96,7 +96,7 @@ export default function AboutPage() {
       <section className="bg-white">
         <div className="mx-auto max-w-6xl px-4 py-16">
           <SectionTitle title="시설 안내" />
-          <ul className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <ul className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {facilities.map((facility) => (
               <li key={facility.src}>
                 <Image
@@ -104,7 +104,7 @@ export default function AboutPage() {
                   alt={facility.alt}
                   width={facility.width}
                   height={facility.height}
-                  sizes="(min-width: 75rem) 33vw, (min-width: 48rem) 50vw, 100vw"
+                  sizes="(min-width: 75rem) 25vw, (min-width: 48rem) 50vw, 100vw"
                   className="aspect-4/3 w-full rounded-lg object-cover"
                 />
                 <h3 className="mt-3 text-lg font-semibold">{facility.name}</h3>

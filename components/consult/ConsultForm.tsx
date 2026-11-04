@@ -255,7 +255,7 @@ export default function ConsultForm() {
       </Field>
 
       <div className="rounded-lg bg-cream p-4">
-        <ul className="text-sm font-light text-muted">
+        <ul className="text-sm text-muted">
           <li>수집 항목: 아동 이름, 생년월일, 성별, 보호자 이름, 연락처, 상담 내용, 희망 상담일</li>
           <li>이용 목적: 상담 신청 확인 및 상담 진행</li>
           <li>전달 방법: 입력한 내용은 센터 이메일로 전송됩니다.</li>
