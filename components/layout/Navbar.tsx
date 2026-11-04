@@ -56,7 +56,7 @@ export default function Navbar() {
                 aria-current={pathname === item.href ? 'page' : undefined}
                 className={
                   item.highlight
-                    ? 'rounded-lg bg-accent px-4 py-2 font-semibold text-ink hover:brightness-105'
+                    ? 'rounded-lg bg-accent px-4 py-2 font-semibold text-white hover:brightness-110'
                     : `hover:text-primary-dark ${pathname === item.href ? 'font-semibold text-primary-dark' : ''}`
                 }
               >
@@ -95,7 +95,7 @@ export default function Navbar() {
                   onClick={() => setOpenedOn(null)}
                   aria-current={pathname === item.href ? 'page' : undefined}
                   className={`block rounded-lg px-4 py-4 text-lg font-semibold ${
-                    item.highlight ? 'bg-accent text-ink' : 'hover:bg-primary/10'
+                    item.highlight ? 'bg-accent text-white' : 'hover:bg-primary/10'
                   }`}
                 >
                   {item.label}

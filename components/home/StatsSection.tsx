@@ -9,7 +9,7 @@ const stats = [
 
 export default function StatsSection() {
   return (
-    <section className="bg-primary text-white">
+    <section className="bg-primary-soft text-primary-dark">
       <ul className="mx-auto grid max-w-6xl grid-cols-2 gap-8 px-4 py-12 md:grid-cols-4">
         {stats.map(({ icon: Icon, value, label }) => (
           <li key={label} className="flex flex-col items-center text-center">

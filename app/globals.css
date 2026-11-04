@@ -4,17 +4,20 @@
   /* 1200px. 기본 중단점과 단위가 다르면 미디어 쿼리 순서가 어긋나므로 rem으로 맞춥니다. */
   --breakpoint-xl: 75rem;
 
-  --color-primary: #3b82c4;
-  --color-primary-light: #5b9dd4;
-  --color-primary-dark: #2c6faf;
+  /* 로고의 파랑, 초록, 주황에서 가져온 색입니다. 주황은 행동 버튼에만 씁니다. */
+  --color-primary: #2f5496;
+  --color-primary-light: #5f7fb8;
+  --color-primary-dark: #2f5496;
+  --color-primary-soft: #eef2f9;
 
-  --color-mint: #4db8a0;
-  --color-mint-light: #6ecbb6;
+  --color-mint: #4b7a35;
+  --color-mint-light: #7fa56b;
 
-  --color-accent: #f47b20;
-  --color-cream: #fafafa;
-  --color-ink: #333333;
-  --color-muted: #6b7280;
+  /* 로고 주황 #c55a11은 흰 글자 대비가 4.5:1에 못 미쳐 조금 어둡게 씁니다. */
+  --color-accent: #bf5610;
+  --color-cream: #faf8f4;
+  --color-ink: #2b2d33;
+  --color-muted: #5f636c;
 }
 
 @layer base {

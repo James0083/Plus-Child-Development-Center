@@ -11,7 +11,7 @@ const ctaItems = [
   { icon: ClipboardList, label: '상담 안내', action: '/consult' },
 ]
 
-const itemClass = 'flex items-center gap-3 rounded-full bg-accent py-2 pl-4 pr-3 font-semibold text-ink shadow-lg hover:brightness-105'
+const itemClass = 'flex items-center gap-3 rounded-full bg-accent py-2 pl-4 pr-3 font-semibold text-white shadow-lg hover:brightness-110'
 
 export default function FloatingCTA() {
   const [open, setOpen] = useState(false)
@@ -60,7 +60,7 @@ export default function FloatingCTA() {
         onClick={() => setOpen((prev) => !prev)}
         aria-label={open ? '빠른 상담 메뉴 닫기' : '빠른 상담 메뉴 열기'}
         aria-expanded={open}
-        className="flex h-14 w-14 items-center justify-center rounded-full bg-accent text-ink shadow-lg hover:brightness-105"
+        className="flex h-14 w-14 items-center justify-center rounded-full bg-accent text-white shadow-lg hover:brightness-110"
       >
         {open ? <X className="h-6 w-6" /> : <Plus className="h-6 w-6" />}
       </button>
