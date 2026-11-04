@@ -36,7 +36,7 @@ export default function ProgramTab() {
 
   return (
     <div>
-      <div role="tablist" aria-label="프로그램 목록" className="grid grid-cols-2 gap-2 md:grid-cols-3 xl:grid-cols-6">
+      <div role="tablist" aria-label="프로그램 목록" className="grid grid-cols-2 gap-2 md:grid-cols-3 xl:grid-cols-7">
         {programs.map((program, index) => {
           const selected = program.id === active.id
           return (

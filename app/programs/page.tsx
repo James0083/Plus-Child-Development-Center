@@ -12,7 +12,7 @@ export default function ProgramsPage() {
       <ProgramTab />
       <div className="mt-10 text-center">
         <Button href="/voucher" variant="outline">
-          발달재활서비스 바우처 안내 보기
+          바우처 안내 보기
         </Button>
       </div>
     </section>

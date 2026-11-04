@@ -1,19 +1,21 @@
 import type { Metadata } from 'next'
 import Button from '@/components/ui/Button'
 import SectionTitle from '@/components/ui/SectionTitle'
-import { voucherContacts, voucherIntro, voucherSections, voucherSteps } from '@/data/voucher'
+import { otherVouchers, voucherContacts, voucherIntro, voucherSections, voucherSteps } from '@/data/voucher'
 
 export const metadata: Metadata = { title: '바우처 안내' }
 
 export default function VoucherPage() {
   return (
     <section className="mx-auto max-w-6xl px-4 py-16">
-      <SectionTitle as="h1" title="발달재활서비스 바우처 안내" description={voucherIntro} />
+      <SectionTitle as="h1" title="바우처 안내" description="센터에서 이용할 수 있는 바우처를 안내합니다." />
 
+      <h2 className="text-lg font-semibold">발달재활서비스</h2>
+      <p className="mt-2 mb-6">{voucherIntro}</p>
       <ul className="grid gap-6 md:grid-cols-2">
         {voucherSections.map((section) => (
           <li key={section.title} className="rounded-2xl bg-white p-6 shadow-sm">
-            <h2 className="text-lg font-semibold">{section.title}</h2>
+            <h3 className="text-lg font-semibold">{section.title}</h3>
             <ul className="mt-3 list-disc space-y-2 pl-5">
               {section.items.map((item) => (
                 <li key={item}>{item}</li>
@@ -23,7 +25,7 @@ export default function VoucherPage() {
         ))}
       </ul>
 
-      <h2 className="mt-12 text-lg font-semibold">이용 절차</h2>
+      <h3 className="mt-12 text-lg font-semibold">이용 절차</h3>
       <ol className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
         {voucherSteps.map((step, index) => (
           <li key={step} className="flex items-center gap-3 rounded-lg bg-primary/10 p-4 font-semibold">
@@ -34,6 +36,20 @@ export default function VoucherPage() {
           </li>
         ))}
       </ol>
+
+      <h2 className="mt-12 text-lg font-semibold">그 외 바우처</h2>
+      <ul className="mt-4 grid gap-6 md:grid-cols-3">
+        {otherVouchers.map((voucher) => (
+          <li key={voucher.title} className="rounded-2xl bg-white p-6 shadow-sm">
+            <h3 className="text-lg font-semibold">{voucher.title}</h3>
+            <ul className="mt-3 list-disc space-y-2 pl-5">
+              {voucher.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ul>
 
       <div className="mt-12 rounded-2xl bg-white p-6 text-center shadow-sm">
         <h2 className="text-lg font-semibold">확인과 문의</h2>
