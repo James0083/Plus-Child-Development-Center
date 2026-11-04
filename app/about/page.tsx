@@ -1,8 +1,8 @@
 import { User } from 'lucide-react'
 import type { Metadata } from 'next'
-import Image from 'next/image'
+import FacilityGallery from '@/components/about/FacilityGallery'
 import SectionTitle from '@/components/ui/SectionTitle'
-import { facilities, history, partners, staff } from '@/data/history'
+import { history, partners, staff } from '@/data/history'
 import { centerInfo, DIRECTOR_NAME, DIRECTOR_TITLE } from '@/lib/constants'
 
 export const metadata: Metadata = { title: '센터 소개' }
@@ -81,21 +81,7 @@ export default function AboutPage() {
       <section className="bg-white">
         <div className="mx-auto max-w-6xl px-4 py-16">
           <SectionTitle title="시설 안내" description={`${centerInfo.amenities.join(', ')}을 이용할 수 있습니다.`} />
-          <ul className="grid gap-6 md:grid-cols-2 xl:grid-cols-5">
-            {facilities.map((facility) => (
-              <li key={facility.src}>
-                <Image
-                  src={facility.src}
-                  alt={facility.alt}
-                  width={facility.width}
-                  height={facility.height}
-                  sizes="(min-width: 75rem) 20vw, (min-width: 48rem) 50vw, 100vw"
-                  className="aspect-4/3 w-full rounded-lg object-cover"
-                />
-                <h3 className="mt-3 text-lg font-semibold">{facility.name}</h3>
-              </li>
-            ))}
-          </ul>
+          <FacilityGallery />
         </div>
       </section>
     </>

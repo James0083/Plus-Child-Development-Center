@@ -30,6 +30,8 @@ export const activityNote =
 
 export const schoolReady = {
   id: 'school-ready',
+  // 이 시각부터 활동 안내에서 자동으로 숨깁니다.
+  visibleUntil: '2027-03-01T00:00:00+09:00',
   label: '예비 초등 학교준비 프로그램',
   title: '두근두근, 학교 갈 준비!',
   target: '초등학교 입학을 앞둔 7세 아동',
