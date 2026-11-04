@@ -16,6 +16,8 @@ const description = '전문 치료사와 함께하는 맞춤 아동발달 프로
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
 
 export const metadata: Metadata = {
+  // 임시 미리보기는 검색에 노출되지 않게 합니다.
+  ...(process.env.NEXT_PUBLIC_NOINDEX === 'true' ? { robots: { index: false, follow: false } } : {}),
   ...(siteUrl ? { metadataBase: new URL(siteUrl) } : {}),
   title: {
     default: '플러스 아동발달센터',

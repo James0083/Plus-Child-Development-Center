@@ -1,3 +1,6 @@
+// next/image는 경로 앞에 basePath를 붙이지 않으므로 직접 붙입니다.
+export const withBasePath = (src: string) => `${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}${src}`
+
 export const PHONE = process.env.NEXT_PUBLIC_PHONE || '031-763-4052'
 export const TEL_HREF = `tel:${PHONE.replace(/[^0-9+]/g, '')}`
 

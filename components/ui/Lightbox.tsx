@@ -3,6 +3,7 @@
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 import Image from 'next/image'
 import { useEffect, useRef, useState, type KeyboardEvent, type TouchEvent } from 'react'
+import { withBasePath } from '@/lib/constants'
 
 export type LightboxPhoto = {
   src: string
@@ -77,7 +78,7 @@ function LightboxDialog({
         <div className="flex min-h-0 flex-1 items-center justify-center p-4 pt-16">
           <Image
             key={photo.src}
-            src={photo.src}
+            src={withBasePath(photo.src)}
             alt={photo.alt}
             width={photo.width}
             height={photo.height}
@@ -147,7 +148,7 @@ export function ZoomableImage({
         className={`block w-full cursor-zoom-in overflow-hidden rounded-lg ${className}`}
       >
         <Image
-          src={thumbSrc ?? photo.src}
+          src={withBasePath(thumbSrc ?? photo.src)}
           alt=""
           width={photo.width}
           height={photo.height}

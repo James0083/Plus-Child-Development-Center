@@ -1,7 +1,7 @@
 import { Phone } from 'lucide-react'
 import Image from 'next/image'
 import Button from '@/components/ui/Button'
-import { PHONE, TEL_HREF } from '@/lib/constants'
+import { PHONE, TEL_HREF, withBasePath } from '@/lib/constants'
 
 export default function HeroBanner() {
   return (
@@ -9,7 +9,7 @@ export default function HeroBanner() {
       {/* 사진 위에 글자를 얹으면 간판이 가려지므로 나란히 놓습니다. */}
       <div className="relative aspect-3/2 md:order-last md:aspect-auto lg:col-span-3">
         <Image
-          src="/images/hero-bg.webp"
+          src={withBasePath('/images/hero-bg.webp')}
           alt="플러스 아동발달센터 건물 외관"
           fill
           preload

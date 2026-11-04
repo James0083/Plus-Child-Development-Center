@@ -1,0 +1,45 @@
+# 외부 확인용 임시 배포입니다. 정식 배포는 Cloudflare로 하며, 공개 후 이 파일을 지우고 Pages를 끕니다.
+name: GitHub Pages 미리보기
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+        env:
+          NEXT_PUBLIC_BASE_PATH: /Plus-Child-Development-Center
+          NEXT_PUBLIC_SITE_URL: https://james0083.github.io/Plus-Child-Development-Center
+          NEXT_PUBLIC_NOINDEX: 'true'
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5

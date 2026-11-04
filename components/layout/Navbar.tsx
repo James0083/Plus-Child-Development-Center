@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
+import { withBasePath } from '@/lib/constants'
 
 const navItems = [
   { label: '센터 소개', href: '/about' },
@@ -71,7 +72,7 @@ export default function Navbar() {
       <nav ref={navRef} aria-label="주 메뉴" className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
         <Link href="/" className="shrink-0 py-2">
           <Image
-            src="/logo/logo.svg"
+            src={withBasePath('/logo/logo.svg')}
             alt="플러스 아동발달센터"
             width={829}
             height={129}
@@ -119,7 +120,13 @@ export default function Navbar() {
         >
           <div className="flex h-16 items-center justify-between px-4">
             <Link href="/" onClick={() => setOpenedOn(null)} className="shrink-0 py-2">
-              <Image src="/logo/logo.svg" alt="플러스 아동발달센터" width={829} height={129} className="h-7 w-auto" />
+              <Image
+                src={withBasePath('/logo/logo.svg')}
+                alt="플러스 아동발달센터"
+                width={829}
+                height={129}
+                className="h-7 w-auto"
+              />
             </Link>
             <button type="button" onClick={closeMenu} aria-label="메뉴 닫기" className="p-2.5" autoFocus>
               <X className="h-6 w-6" />

@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Button from '@/components/ui/Button'
 import Section from '@/components/ui/Section'
 import SectionTitle from '@/components/ui/SectionTitle'
-import { centerInfo, NAVER_MAP_URL, TEL_HREF } from '@/lib/constants'
+import { centerInfo, NAVER_MAP_URL, TEL_HREF, withBasePath } from '@/lib/constants'
 
 export default function MapSection() {
   return (
@@ -18,7 +18,7 @@ export default function MapSection() {
           className="self-start overflow-hidden card transition-shadow hover:shadow-lg md:col-span-3"
         >
           <Image
-            src="/images/map.webp"
+            src={withBasePath('/images/map.webp')}
             width={1000}
             height={877}
             alt={`${centerInfo.name} 위치를 표시한 네이버 지도`}
