@@ -1,6 +1,6 @@
 export type ProgramColor = 'primary' | 'mint' | 'accent'
 
-const SESSION = '1회 50분 (치료 40분 + 부모 상담 10분)'
+export const programSession = '1회 50분 (치료 40분 + 부모 상담 10분)'
 
 export const programs: {
   id: string
@@ -11,7 +11,6 @@ export const programs: {
   ages?: string
   targets: string[]
   details: string[]
-  session: string
 }[] = [
   {
     id: 'language',
@@ -31,7 +30,6 @@ export const programs: {
       '정확한 언어평가를 통해 아동에게 필요한 구체적인 목표를 세우고 적절하게 중재합니다.',
       '일상생활에서 언어뿐 아니라 비언어적인 의사소통까지 향상되도록 자극을 제시하고 촉진합니다.',
     ],
-    session: SESSION,
   },
   {
     id: 'play',
@@ -54,7 +52,6 @@ export const programs: {
       '다양한 놀잇감과 치료사와의 상호작용을 통해 감정을 자유롭게 발산하고 자신을 이해하고 수용하는 경험을 합니다.',
       '그 과정에서 사회성, 인지, 정서 발달을 도모합니다.',
     ],
-    session: SESSION,
   },
   {
     id: 'cognitive',
@@ -72,7 +69,6 @@ export const programs: {
       '인지학습치료를 통해 기본적인 학습 태도를 갖출 수 있습니다.',
       '학습 능력 향상뿐 아니라 자기표현 능력과 자신감 향상도 기대할 수 있습니다.',
     ],
-    session: SESSION,
   },
   {
     id: 'sensory',
@@ -90,7 +86,6 @@ export const programs: {
       '주변 환경에 적절하게 반응할 수 있도록 돕습니다.',
       '시각, 청각, 미각, 평형감각, 고유감각 등 다양한 감각 정보를 통합하고 조직화해 균형 있는 발달을 돕습니다.',
     ],
-    session: SESSION,
   },
   {
     id: 'arts',
@@ -110,7 +105,6 @@ export const programs: {
       '좋아하는 미술매체로 그림 그리기, 만들기 등의 작품을 완성하며 성취감을 얻고, 감정을 표출하고 온전히 수용받는 경험을 합니다.',
       '이러한 과정을 통해 정서, 심리, 인지, 언어 등 전반적 발달을 균형 있게 이룰 수 있습니다.',
     ],
-    session: SESSION,
   },
   {
     id: 'social',
@@ -118,7 +112,7 @@ export const programs: {
     title: '사회성 치료',
     desc: '4~8명의 친구들과 함께 사회적 기술을 배우고 적용하는 프로그램입니다.',
     color: 'primary',
-    ages: '4세~초등 고학년',
+    ages: '만 4세~초등 고학년',
     targets: [
       '또래 관계에 어려움을 보이는 아동',
       '단체 활동에 참여하기 어렵고 혼자 노는 아동',
@@ -127,11 +121,11 @@ export const programs: {
       '질서와 차례 지키기, 기다리기가 어려운 아동',
     ],
     details: [
-      '연령 구분: 4~5세, 6~7세, 초등 저학년, 초등 고학년',
+      '연령 구분: 만 4~5세, 만 6~7세, 초등 저학년, 초등 고학년',
+      '그룹 또는 짝으로 구성하며, 치료사 2명이 함께 진행합니다.',
       '아동 특성과 사회적 행동 발달 정도에 따라 목표가 조금씩 달라집니다.',
       '상호작용 시도, 반응하기, 대화 주고받기와 유지하기, 감정 표현 및 조절하기, 상황에 적절한 행동하기 등으로 구성됩니다.',
     ],
-    session: '그룹·짝 수업, 1회 60분, 치료사 2명 진행',
   },
 ]
 

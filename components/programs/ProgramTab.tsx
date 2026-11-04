@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, type KeyboardEvent } from 'react'
 import Badge from '@/components/ui/Badge'
 import Button from '@/components/ui/Button'
-import { programIconBg, programs } from '@/data/programs'
+import { programIconBg, programSession, programs } from '@/data/programs'
 
 export default function ProgramTab() {
   const [activeId, setActiveId] = useState(programs[0].id)
@@ -105,7 +105,7 @@ export default function ProgramTab() {
             </ul>
           </div>
         </div>
-        <p className="mt-6 text-sm font-light text-muted">회기 구성: {active.session}</p>
+        <p className="mt-6 text-sm font-light text-muted">회기 구성: {programSession}</p>
         <Button href="/consult" className="mt-6">
           {active.title} 상담 신청
         </Button>

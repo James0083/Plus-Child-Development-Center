@@ -41,7 +41,7 @@ export const footerInfo = {
 
 export const PRIVACY_RETENTION = '상담 완료 후 1년'
 
-// 개인정보처리방침과 이용약관의 시행일입니다. 실제 공개일로 맞춥니다.
+// 개인정보처리방침과 이용약관의 시행일입니다.
 export const LEGAL_EFFECTIVE_DATE = '2026년 11월 4일'
 
 // 메일 전송을 시험한 뒤에만 켭니다. 꺼져 있으면 전화와 카카오 채널로만 안내합니다.

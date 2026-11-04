@@ -19,19 +19,23 @@ export default function NoticePage() {
   return (
     <section className="mx-auto max-w-3xl px-4 py-16">
       <SectionTitle as="h1" title="공지사항" />
-      <ul className="divide-y divide-gray-200 rounded-2xl bg-white shadow-sm">
-        {notices.map((notice) => (
-          <li key={notice.id} className="flex flex-col gap-2 p-5 md:flex-row md:items-center md:gap-4">
-            <div className="shrink-0">
-              <Badge tone={categoryTone[notice.category]}>{notice.category}</Badge>
-            </div>
-            <p className="flex-1 font-semibold">{notice.title}</p>
-            <time dateTime={notice.date} className="text-sm font-light text-muted">
-              {notice.date}
-            </time>
-          </li>
-        ))}
-      </ul>
+      {notices.length === 0 ? (
+        <p className="rounded-2xl bg-white p-10 text-center text-muted shadow-sm">등록된 공지사항이 없습니다.</p>
+      ) : (
+        <ul className="divide-y divide-gray-200 rounded-2xl bg-white shadow-sm">
+          {notices.map((notice) => (
+            <li key={notice.id} className="flex flex-col gap-2 p-5 md:flex-row md:items-center md:gap-4">
+              <div className="shrink-0">
+                <Badge tone={categoryTone[notice.category]}>{notice.category}</Badge>
+              </div>
+              <p className="flex-1 font-semibold">{notice.title}</p>
+              <time dateTime={notice.date} className="text-sm font-light text-muted">
+                {notice.date}
+              </time>
+            </li>
+          ))}
+        </ul>
+      )}
     </section>
   )
 }

@@ -1,4 +1,5 @@
 import { Bus, Car, Clock, MapPin, MessageCircle, Phone } from 'lucide-react'
+import Image from 'next/image'
 import Button from '@/components/ui/Button'
 import SectionTitle from '@/components/ui/SectionTitle'
 import { centerInfo, NAVER_MAP_URL, TEL_HREF } from '@/lib/constants'
@@ -9,17 +10,22 @@ export default function MapSection() {
       <div className="mx-auto max-w-6xl px-4 py-16">
         <SectionTitle title="찾아오는 길" />
         <div className="grid gap-6 md:grid-cols-5">
-          {/* map.naver.com은 X-Frame-Options: DENY로 iframe 삽입을 막아 링크 패널로 대체합니다. */}
-          <div className="flex h-[400px] flex-col items-center justify-center gap-4 rounded-2xl bg-mint/15 p-6 text-center md:col-span-3">
-            <MapPin className="h-12 w-12 text-primary-dark" aria-hidden />
-            <div>
-              <p className="font-semibold">{centerInfo.address}</p>
-              <p className="mt-1 text-sm font-light text-muted">지번: {centerInfo.addressLot}</p>
-            </div>
-            <Button href={NAVER_MAP_URL} variant="outline">
-              네이버 지도에서 보기
-            </Button>
-          </div>
+          {/* 네이버 지도 화면을 캡처한 이미지입니다. 누르면 네이버 지도로 이동합니다. */}
+          <a
+            href={NAVER_MAP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="self-start overflow-hidden rounded-2xl bg-white shadow-sm transition-shadow hover:shadow-lg md:col-span-3"
+          >
+            <Image
+              src="/images/map.jpg"
+              width={1200}
+              height={1053}
+              alt={`${centerInfo.name} 위치를 표시한 네이버 지도`}
+              className="h-auto w-full"
+            />
+            <span className="block p-4 text-center font-semibold text-primary-dark">네이버 지도에서 보기</span>
+          </a>
 
           <div className="flex flex-col gap-5 md:col-span-2">
             <h3 className="text-lg font-semibold">{centerInfo.name}</h3>
