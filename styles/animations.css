@@ -1,0 +1,25 @@
+/* 메인 첫 화면이 순서대로 나타나는 효과입니다. */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+}
+
+.hero-reveal > * {
+  animation: fade-in-up 0.6s both;
+}
+
+.hero-reveal > :nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.hero-reveal > :nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-reveal > * {
+    animation: none;
+  }
+}

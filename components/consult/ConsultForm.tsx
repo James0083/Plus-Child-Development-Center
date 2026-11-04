@@ -147,7 +147,7 @@ export default function ConsultForm() {
 
   if (submitted) {
     return (
-      <div ref={doneRef} tabIndex={-1} role="status" className="rounded-2xl bg-white p-10 text-center shadow-sm outline-hidden">
+      <div ref={doneRef} tabIndex={-1} role="status" className="card p-10 text-center outline-hidden">
         <CheckCircle2 className="mx-auto h-12 w-12 text-mint" aria-hidden />
         <p className="mt-4 whitespace-pre-line text-lg font-bold">
           {'상담 신청이 완료되었습니다.\n영업일 기준 1~2일 내로 연락드리겠습니다. 감사합니다.'}
@@ -163,7 +163,7 @@ export default function ConsultForm() {
   })
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-6 rounded-2xl bg-white p-6 shadow-sm md:p-8">
+    <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-6 card p-6 md:p-8">
       <p className="text-sm text-muted">
         <span aria-hidden className="mr-1 text-red-700">*</span>
         표시는 필수 항목입니다.

@@ -1,5 +1,5 @@
 import { ZoomableImage } from '@/components/ui/Lightbox'
-import { facilities } from '@/data/history'
+import { facilities } from '@/data/about'
 
 export default function FacilityGallery() {
   return (

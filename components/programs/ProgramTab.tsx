@@ -1,8 +1,10 @@
 'use client'
 
 import { useEffect, useRef, useState, type KeyboardEvent } from 'react'
+import { programIconTone } from '@/components/programs/programTone'
+import BulletList from '@/components/ui/BulletList'
 import Button from '@/components/ui/Button'
-import { programIconTone, programSession, programs } from '@/data/programs'
+import { programSession, programs } from '@/data/programs'
 
 export default function ProgramTab() {
   const [activeId, setActiveId] = useState(programs[0].id)
@@ -67,7 +69,7 @@ export default function ProgramTab() {
         role="tabpanel"
         aria-labelledby={active.id}
         tabIndex={0}
-        className="mt-8 rounded-2xl bg-white p-8 shadow-sm"
+        className="mt-8 card p-8"
       >
         <div className="flex flex-wrap items-center gap-4">
           <span
@@ -77,26 +79,18 @@ export default function ProgramTab() {
             <active.icon className="h-8 w-8" />
           </span>
           <div>
-            <h2 className="text-2xl font-extrabold">{active.title}</h2>
+            <h2 className="heading-section">{active.title}</h2>
           </div>
         </div>
         <p className="mt-6 text-base font-normal">{active.desc}</p>
         <div className="mt-6 grid gap-6 md:grid-cols-2">
           <div>
             <h3 className="text-lg font-bold">이런 아동에게 도움이 됩니다</h3>
-            <ul className="mt-2 list-disc space-y-1 pl-5">
-              {active.targets.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
+            <BulletList className="mt-2" items={active.targets} />
           </div>
           <div>
             <h3 className="text-lg font-bold">치료 내용</h3>
-            <ul className="mt-2 list-disc space-y-1 pl-5">
-              {active.details.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
+            <BulletList className="mt-2" items={active.details} />
           </div>
         </div>
         <p className="mt-6 text-sm text-muted">회기 구성: {active.session ?? programSession}</p>

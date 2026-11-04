@@ -1,17 +1,19 @@
 import { ArrowRight, Compass } from 'lucide-react'
 import Link from 'next/link'
+import { programIconTone } from '@/components/programs/programTone'
+import Section from '@/components/ui/Section'
 import SectionTitle from '@/components/ui/SectionTitle'
-import { programIconTone, programs } from '@/data/programs'
+import { programs } from '@/data/programs'
 
 export default function ProgramCards() {
   return (
-    <section className="mx-auto max-w-6xl px-4 py-16">
+    <Section>
       <SectionTitle title="프로그램 안내" description="아이의 발달 특성에 맞는 맞춤 프로그램을 운영합니다." />
       <ul className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
         {programs.map((program) => (
           <li
             key={program.id}
-            className="flex flex-col rounded-2xl bg-white p-6 shadow-sm transition duration-200 hover:scale-105 hover:shadow-lg"
+            className="flex flex-col card p-6 transition duration-200 hover:scale-105 hover:shadow-lg"
           >
             <span
               aria-hidden
@@ -46,6 +48,6 @@ export default function ProgramCards() {
           </Link>
         </li>
       </ul>
-    </section>
+    </Section>
   )
 }

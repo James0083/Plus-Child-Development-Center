@@ -1,22 +1,7 @@
 @import 'tailwindcss';
-
-@theme {
-  /* 1200px. 기본 중단점과 단위가 다르면 미디어 쿼리 순서가 어긋나므로 rem으로 맞춥니다. */
-  --breakpoint-xl: 75rem;
-
-  /* 로고의 파랑, 초록, 주황에서 가져온 색입니다. 주황은 행동 버튼에만 씁니다. */
-  --color-primary: #2f5496;
-  --color-primary-light: #5f7fb8;
-  --color-primary-soft: #eef2f9;
-
-  --color-mint: #4b7a35;
-
-  /* 로고 주황 #c55a11은 흰 글자 대비가 4.5:1에 못 미쳐 조금 어둡게 씁니다. */
-  --color-accent: #bf5610;
-  --color-cream: #faf8f4;
-  --color-ink: #2b2d33;
-  --color-muted: #5f636c;
-}
+@import '../styles/tokens.css';
+@import '../styles/utilities.css';
+@import '../styles/animations.css';
 
 @layer base {
   button:not(:disabled) {
@@ -27,31 +12,6 @@
 /* 고정된 머리글과 하단 바가 포커스된 요소를 가리지 않게 합니다. */
 html {
   scroll-padding-block: 5rem;
-}
-
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(1.5rem);
-  }
-}
-
-.hero-reveal > * {
-  animation: fade-in-up 0.6s both;
-}
-
-.hero-reveal > :nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.hero-reveal > :nth-child(3) {
-  animation-delay: 0.4s;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-reveal > * {
-    animation: none;
-  }
 }
 
 body {

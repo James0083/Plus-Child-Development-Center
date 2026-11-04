@@ -1,0 +1,8 @@
+/* 여러 화면에서 같은 모양으로 쓰는 스타일입니다. */
+@utility card {
+  @apply rounded-2xl bg-white shadow-sm;
+}
+
+@utility heading-section {
+  @apply text-2xl font-extrabold;
+}

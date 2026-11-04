@@ -1,8 +1,9 @@
 import { User } from 'lucide-react'
 import type { Metadata } from 'next'
 import FacilityGallery from '@/components/about/FacilityGallery'
+import Section from '@/components/ui/Section'
 import SectionTitle from '@/components/ui/SectionTitle'
-import { history, partners, staff } from '@/data/history'
+import { history, partners, staff } from '@/data/about'
 import { centerInfo, DIRECTOR_NAME, DIRECTOR_TITLE } from '@/lib/constants'
 
 export const metadata: Metadata = { title: '센터 소개' }
@@ -15,14 +16,14 @@ const greeting = [
 export default function AboutPage() {
   return (
     <>
-      <section className="mx-auto max-w-6xl px-4 py-16">
+      <Section>
         <SectionTitle as="h1" title="센터 소개" description="플러스 아동발달센터를 소개합니다." />
-        <div className="flex flex-col items-center gap-8 rounded-2xl bg-white p-8 shadow-sm md:flex-row md:items-start">
+        <div className="flex flex-col items-center gap-8 card p-8 md:flex-row md:items-start">
           <div className="flex h-32 w-32 shrink-0 items-center justify-center rounded-full bg-primary-light">
             <User className="h-16 w-16 text-white" aria-hidden />
           </div>
           <div>
-            <h2 className="text-2xl font-extrabold">인사말</h2>
+            <h2 className="heading-section">인사말</h2>
             <div className="mt-3 space-y-3">
               {greeting.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
@@ -33,10 +34,9 @@ export default function AboutPage() {
             </p>
           </div>
         </div>
-      </section>
+      </Section>
 
-      <section className="bg-white">
-        <div className="mx-auto max-w-6xl px-4 py-16">
+      <Section tone="white">
           <SectionTitle title="전문 치료사" description={`전체 치료사 ${staff.total}명이 함께합니다.`} />
           <ul className="grid grid-cols-2 gap-4 md:grid-cols-5">
             {staff.fields.map((field) => (
@@ -46,11 +46,9 @@ export default function AboutPage() {
               </li>
             ))}
           </ul>
-        </div>
-      </section>
+        </Section>
 
-      <section className="bg-white">
-        <div className="mx-auto max-w-3xl px-4 py-16">
+      <Section tone="white" width="md">
           <SectionTitle title="센터 연혁" />
           <ol className="mx-auto w-fit border-l-2 border-primary-light">
             {history.map((item) => (
@@ -61,14 +59,13 @@ export default function AboutPage() {
               </li>
             ))}
           </ol>
-        </div>
-      </section>
+        </Section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16">
+      <Section>
         <SectionTitle title="협력기관" />
         <ul className="grid gap-6 md:grid-cols-3">
           {partners.map((partner) => (
-            <li key={partner.name} className="rounded-2xl bg-white p-6 shadow-sm">
+            <li key={partner.name} className="card p-6">
               <h3 className="text-lg font-bold">{partner.name}</h3>
               <p className="mt-2">
                 <span className="font-bold">대상:</span> {partner.target}
@@ -76,14 +73,12 @@ export default function AboutPage() {
             </li>
           ))}
         </ul>
-      </section>
+      </Section>
 
-      <section className="bg-white">
-        <div className="mx-auto max-w-6xl px-4 py-16">
+      <Section tone="white">
           <SectionTitle title="시설 안내" description={`${centerInfo.amenities.join(', ')}을 이용할 수 있습니다.`} />
           <FacilityGallery />
-        </div>
-      </section>
+        </Section>
     </>
   )
 }

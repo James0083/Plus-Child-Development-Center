@@ -1,4 +1,5 @@
 import { ChevronDown } from 'lucide-react'
+import Section from '@/components/ui/Section'
 import SectionTitle from '@/components/ui/SectionTitle'
 import { sessionMinutes, sessions } from '@/data/schedule'
 import { centerInfo } from '@/lib/constants'
@@ -7,8 +8,7 @@ export default function TimetableSection() {
   const { regular, closed } = centerInfo.hours
 
   return (
-    <section className="bg-white">
-      <div className="mx-auto max-w-6xl px-4 py-16">
+    <Section tone="white">
         <SectionTitle
           title="치료 시간표"
           description={`1회 ${sessionMinutes}분(수업 40분 + 상담 10분) · 쉬는 시간 없이 운영합니다.`}
@@ -52,7 +52,6 @@ export default function TimetableSection() {
         <p className="mt-4 text-center text-sm text-muted">
           운영시간: {regular} / {closed}
         </p>
-      </div>
-    </section>
+      </Section>
   )
 }

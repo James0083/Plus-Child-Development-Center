@@ -1,13 +1,13 @@
 import { Accessibility, Bus, Car, Clock, MapPin, MessageCircle, Phone } from 'lucide-react'
 import Image from 'next/image'
 import Button from '@/components/ui/Button'
+import Section from '@/components/ui/Section'
 import SectionTitle from '@/components/ui/SectionTitle'
 import { centerInfo, NAVER_MAP_URL, TEL_HREF } from '@/lib/constants'
 
 export default function MapSection() {
   return (
-    <section id="location">
-      <div className="mx-auto max-w-6xl px-4 py-16">
+    <Section id="location">
         <SectionTitle title="찾아오는 길" />
         <div className="grid gap-6 md:grid-cols-5">
           {/* 네이버 지도 화면을 캡처한 이미지입니다. 누르면 네이버 지도로 이동합니다. */}
@@ -15,7 +15,7 @@ export default function MapSection() {
             href={NAVER_MAP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="self-start overflow-hidden rounded-2xl bg-white shadow-sm transition-shadow hover:shadow-lg md:col-span-3"
+            className="self-start overflow-hidden card transition-shadow hover:shadow-lg md:col-span-3"
           >
             <Image
               src="/images/map.webp"
@@ -76,7 +76,6 @@ export default function MapSection() {
             </Button>
           </div>
         </div>
-      </div>
-    </section>
+      </Section>
   )
 }

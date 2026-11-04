@@ -147,8 +147,3 @@ export const programs: {
     ],
   },
 ]
-
-export const programIconTone: Record<ProgramColor, string> = {
-  primary: 'bg-primary/10 text-primary-dark',
-  mint: 'bg-mint/15 text-mint',
-}
