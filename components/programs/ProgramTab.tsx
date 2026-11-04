@@ -9,6 +9,7 @@ import { programSession, programs } from '@/data/programs'
 export default function ProgramTab() {
   const [activeId, setActiveId] = useState(programs[0].id)
   const tabsRef = useRef<(HTMLButtonElement | null)[]>([])
+  const listRef = useRef<HTMLDivElement>(null)
   const active = programs.find((program) => program.id === activeId) ?? programs[0]
 
   useEffect(() => {
@@ -20,6 +21,13 @@ export default function ProgramTab() {
     window.addEventListener('hashchange', syncFromHash)
     return () => window.removeEventListener('hashchange', syncFromHash)
   }, [])
+
+  // 모바일에서 한 줄로 넘기는 탭 중 선택한 탭을 가운데로 옮깁니다. 페이지 세로 위치는 건드리지 않습니다.
+  useEffect(() => {
+    const list = listRef.current
+    const tab = tabsRef.current[programs.findIndex((program) => program.id === activeId)]
+    if (list && tab) list.scrollLeft = tab.offsetLeft - (list.clientWidth - tab.offsetWidth) / 2
+  }, [activeId])
 
   const select = (id: string) => {
     setActiveId(id)
@@ -37,7 +45,12 @@ export default function ProgramTab() {
 
   return (
     <div>
-      <div role="tablist" aria-label="프로그램 목록" className="grid grid-cols-2 gap-2 md:grid-cols-4 xl:grid-cols-7">
+      <div
+        role="tablist"
+        aria-label="프로그램 목록"
+        ref={listRef}
+        className="relative -mx-4 flex gap-2 overflow-x-auto px-4 pb-2 [scrollbar-width:none] md:mx-0 md:grid md:grid-cols-4 md:overflow-visible md:px-0 md:pb-0 xl:grid-cols-7"
+      >
         {programs.map((program, index) => {
           const selected = program.id === active.id
           return (
@@ -54,7 +67,7 @@ export default function ProgramTab() {
               tabIndex={selected ? 0 : -1}
               onClick={() => select(program.id)}
               onKeyDown={(e) => onKeyDown(e, index)}
-              className={`scroll-mt-24 rounded-lg px-3 py-3 last:col-span-2 xl:last:col-span-1 text-sm font-bold transition-colors ${
+              className={`shrink-0 scroll-mt-24 rounded-lg whitespace-nowrap px-4 py-3 md:px-3 md:last:col-span-2 xl:last:col-span-1 text-sm font-bold transition-colors ${
                 selected ? 'bg-primary text-white' : 'bg-white text-ink shadow-xs hover:bg-primary/10'
               }`}
             >

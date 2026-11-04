@@ -61,7 +61,7 @@ export default function FloatingCTA() {
       <nav
         data-quick-cta
         aria-label="빠른 상담"
-        className={`fixed inset-x-0 bottom-0 z-40 ${typing ? 'hidden' : 'grid'} grid-cols-2 gap-2 border-t border-gray-200 bg-white p-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] lg:hidden`}
+        className={`fixed inset-x-0 bottom-0 z-40 ${typing ? 'hidden' : 'grid'} grid-cols-2 gap-2 border-t border-gray-200 bg-white p-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] lg:hidden [@media(max-height:500px)]:hidden`}
       >
         <a
           href={TEL_HREF}
