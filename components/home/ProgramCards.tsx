@@ -28,7 +28,7 @@ export default function ProgramCards() {
             <Link
               href={`/programs#${program.id}`}
               aria-label={`${program.title} 자세히 보기`}
-              className="mt-4 inline-flex items-center gap-1 font-semibold text-primary-dark hover:underline"
+              className="mt-2 inline-flex items-center gap-1 py-2.5 font-semibold text-primary-dark hover:underline"
             >
               자세히 보기
               <ArrowRight className="h-4 w-4" />

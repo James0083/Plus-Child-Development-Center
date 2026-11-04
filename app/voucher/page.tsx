@@ -54,13 +54,13 @@ export default function VoucherPage() {
       <div className="mt-12 rounded-2xl bg-white p-6 text-center shadow-sm">
         <h2 className="text-lg font-semibold">확인과 문의</h2>
         <p className="mt-2">지원 기준과 금액은 해마다 달라질 수 있습니다.</p>
-        <ul className="mt-3 flex flex-col justify-center gap-2 md:flex-row md:gap-6">
+        <ul className="mt-1 flex flex-col justify-center md:flex-row md:gap-6">
           {voucherContacts.map((contact) => (
             <li key={contact.label}>
               {contact.label}:{' '}
               <a
                 href={contact.href}
-                className="font-semibold text-primary-dark underline"
+                className="inline-block py-2.5 font-semibold text-primary-dark underline"
                 {...(contact.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
               >
                 {contact.value}

@@ -55,7 +55,7 @@ export default function MapSection() {
             </div>
             <div className="flex gap-3">
               <Phone className="h-5 w-5 shrink-0 text-primary-dark" aria-hidden />
-              <a href={TEL_HREF} className="hover:underline">
+              <a href={TEL_HREF} className="-my-2.5 py-2.5 hover:underline">
                 {centerInfo.phone}
               </a>
             </div>
