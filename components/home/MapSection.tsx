@@ -1,8 +1,7 @@
 import { Clock, MapPin, MessageCircle, Phone } from 'lucide-react'
-import Badge from '@/components/ui/Badge'
 import Button from '@/components/ui/Button'
 import SectionTitle from '@/components/ui/SectionTitle'
-import { centerInfo, NAVER_MAP_URL, TEL_HREF } from '@/lib/constants'
+import { centerInfo, KAKAO_CHANNEL_NAME, NAVER_MAP_URL, TEL_HREF } from '@/lib/constants'
 
 export default function MapSection() {
   return (
@@ -23,10 +22,7 @@ export default function MapSection() {
             <h3 className="text-lg font-semibold">{centerInfo.name}</h3>
             <div className="flex gap-3">
               <MapPin className="h-5 w-5 shrink-0 text-primary-dark" aria-hidden />
-              <div>
-                <p>{centerInfo.address}</p>
-                <p className="mt-1 text-sm font-light text-muted">{centerInfo.directions}</p>
-              </div>
+              <p>{centerInfo.address}</p>
             </div>
             <div className="flex gap-3">
               <Phone className="h-5 w-5 shrink-0 text-primary-dark" aria-hidden />
@@ -39,20 +35,19 @@ export default function MapSection() {
               <ul>
                 <li>{centerInfo.hours.regular}</li>
                 <li>{centerInfo.hours.sunday}</li>
-                <li>{centerInfo.hours.holiday}</li>
               </ul>
             </div>
-            <ul className="flex flex-wrap gap-2">
-              {centerInfo.amenities.map((amenity) => (
-                <li key={amenity}>
-                  <Badge tone="mint">{amenity}</Badge>
-                </li>
-              ))}
-            </ul>
-            <Button href={centerInfo.kakao} className="mt-auto">
-              <MessageCircle className="h-5 w-5" />
-              카카오 채널 상담
-            </Button>
+            {centerInfo.kakao ? (
+              <Button href={centerInfo.kakao} className="mt-auto">
+                <MessageCircle className="h-5 w-5" />
+                카카오 채널 상담
+              </Button>
+            ) : (
+              <div className="flex gap-3">
+                <MessageCircle className="h-5 w-5 shrink-0 text-primary-dark" aria-hidden />
+                <p>카카오톡 채널: {KAKAO_CHANNEL_NAME}</p>
+              </div>
+            )}
           </div>
         </div>
       </div>

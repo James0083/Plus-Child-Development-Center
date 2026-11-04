@@ -1,11 +1,28 @@
-// [DUMMY] 실제 연혁으로 교체합니다.
 export const history = [
-  { year: '2015', event: '플러스 아동발달센터 설립' },
-  { year: '2017', event: '언어치료실 2호 확장' },
-  { year: '2019', event: '발달재활서비스 바우처 기관 등록' },
-  { year: '2021', event: '감각통합치료실 신설' },
-  { year: '2023', event: '누적 상담 500건 달성' },
-  { year: '2025', event: '홈페이지 리뉴얼 오픈' },
+  { date: '2000.1.15.', event: '우&유 아동발달 연구소' },
+  { date: '2005.1.29.', event: '장애전담 어린이집 인가' },
+  { date: '2005.3.2.', event: '재활플러스 어린이집 개원' },
+  { date: '2012.1.2.', event: '플러스아동발달센터 오픈' },
+]
+
+export const staff = {
+  total: 25,
+  fields: [
+    { name: '언어', count: 13 },
+    { name: '인지', count: 4 },
+    { name: '놀이', count: 4 },
+    { name: '감통', count: 2 },
+    { name: '미술', count: 2 },
+  ],
+}
+
+export const partners = [
+  { name: '재활플러스어린이집', target: '1세이상~만12세 장애아동 및 발달지연 아동' },
+  { name: '생크림어린이집', target: '일반어린이집' },
+  {
+    name: '유캔플러스자립지원센터',
+    target: '만 6세 이상 65세 미만의 「장애인복지법」상 등록 장애인이며, 소득 수준에 관계없이 신청',
+  },
 ]
 
 // [DUMMY] 실제 시설 구성으로 교체합니다.

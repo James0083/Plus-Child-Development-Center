@@ -28,7 +28,7 @@ export default function VoucherGuide() {
         ))}
       </ol>
       <div className="mt-8 text-center">
-        <Button href="/consult">바우처 이용 상담 신청</Button>
+        <Button href="/consult">바우처 이용 상담하기</Button>
       </div>
     </div>
   )

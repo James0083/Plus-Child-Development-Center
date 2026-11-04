@@ -2,9 +2,9 @@ import { Award, BookOpen, Heart, Users } from 'lucide-react'
 
 const stats = [
   { icon: BookOpen, value: '6가지', label: '치료 프로그램' },
-  { icon: Users, value: '8명+', label: '전문 치료사' }, // [DUMMY]
-  { icon: Heart, value: '500+', label: '누적 상담 건수' }, // [DUMMY]
-  { icon: Award, value: '10년+', label: '센터 운영 경력' }, // [DUMMY]
+  { icon: Users, value: '25명', label: '전문 치료사' },
+  { icon: Heart, value: '월 350명', label: '치료 아동' },
+  { icon: Award, value: '2000년', label: '연구소 설립' },
 ]
 
 export default function StatsSection() {

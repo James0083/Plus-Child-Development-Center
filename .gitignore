@@ -28,6 +28,10 @@ Thumbs.db
 # env files (값이 없는 예시 파일만 저장소에 포함)
 .env*
 !.env.example
+.dev.vars*
+
+# cloudflare
+.wrangler/
 
 # vercel
 .vercel

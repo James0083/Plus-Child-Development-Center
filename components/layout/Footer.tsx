@@ -9,8 +9,8 @@ export default function Footer() {
         <p className="text-lg font-semibold text-white">{footerInfo.name}</p>
         <dl className="mt-4 grid gap-1 md:grid-cols-2">
           <div>
-            <dt className="inline">대표 </dt>
-            <dd className="inline">{footerInfo.ceo}</dd>
+            <dt className="inline">센터장 </dt>
+            <dd className="inline">{footerInfo.director}</dd>
           </div>
           <div>
             <dt className="inline">사업자등록번호 </dt>

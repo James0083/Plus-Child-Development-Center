@@ -15,6 +15,8 @@ type ButtonProps = {
   href?: string
   variant?: keyof typeof variants
   type?: 'button' | 'submit'
+  onClick?: () => void
+  disabled?: boolean
   className?: string
 }
 
@@ -23,13 +25,15 @@ export default function Button({
   href,
   variant = 'primary',
   type = 'button',
+  onClick,
+  disabled,
   className = '',
 }: ButtonProps) {
   const classes = `${base} ${variants[variant]} ${className}`
 
   if (!href) {
     return (
-      <button type={type} className={classes}>
+      <button type={type} onClick={onClick} disabled={disabled} className={classes}>
         {children}
       </button>
     )

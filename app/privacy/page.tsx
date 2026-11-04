@@ -8,11 +8,11 @@ export const metadata: Metadata = { title: '개인정보처리방침' }
 const sections = [
   {
     title: '1. 수집하는 개인정보 항목',
-    body: '아동 이름, 생년월일, 성별, 보호자 이름, 연락처, 상담 내용, 희망 상담일',
+    body: '상담 신청서, 전화 또는 카카오 채널 상담 과정에서 아동 이름, 생년월일, 성별, 보호자 이름, 연락처, 상담 내용, 희망 상담일을 받을 수 있습니다.',
   },
   {
     title: '2. 수집 및 이용 목적',
-    body: '상담 신청 확인, 상담 일정 안내 및 상담 진행',
+    body: '상담 신청 확인, 상담 일정 안내 및 상담 진행. 상담 신청서 내용은 Cloudflare 메일 전송 기능을 통해 센터 이메일로 전달되며, 홈페이지에 별도로 저장하지 않습니다.',
   },
   {
     title: '3. 보유 및 이용 기간',
@@ -35,8 +35,8 @@ const sections = [
     body: '보유 기간이 끝나거나 처리 목적을 달성한 개인정보는 지체 없이 파기합니다. 전자 파일은 복구할 수 없는 방법으로 삭제하고, 종이 문서는 분쇄하거나 소각합니다.',
   },
   {
-    title: '8. 개인정보 보호책임자 및 문의처',
-    body: `개인정보 보호책임자 ${footerInfo.ceo} / ${footerInfo.name} / 전화 ${footerInfo.phone} / 이메일 ${footerInfo.email}`,
+    title: '8. 개인정보 문의처',
+    body: `${footerInfo.name} / 전화 ${footerInfo.phone} / 이메일 ${footerInfo.email}`,
   },
 ]
 

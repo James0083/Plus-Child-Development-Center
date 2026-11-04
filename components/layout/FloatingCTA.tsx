@@ -7,8 +7,8 @@ import { KAKAO_URL, TEL_HREF } from '@/lib/constants'
 
 const ctaItems = [
   { icon: Phone, label: '전화 연결', action: TEL_HREF },
-  { icon: MessageCircle, label: '카카오 상담', action: KAKAO_URL },
-  { icon: ClipboardList, label: '온라인 상담 신청', action: '/consult' },
+  ...(KAKAO_URL ? [{ icon: MessageCircle, label: '카카오 상담', action: KAKAO_URL }] : []),
+  { icon: ClipboardList, label: '상담 안내', action: '/consult' },
 ]
 
 const itemClass = 'flex items-center gap-3 rounded-full bg-accent py-2 pl-4 pr-3 font-semibold text-ink shadow-lg hover:brightness-105'
