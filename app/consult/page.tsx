@@ -1,4 +1,4 @@
-import { MessageCircle, Phone } from 'lucide-react'
+import { ClipboardList, MessageCircle, Phone } from 'lucide-react'
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
@@ -30,7 +30,7 @@ export default function ConsultPage() {
         <p className="mt-2 text-sm text-muted">
           {regular} / {closed}
         </p>
-        <div className="mt-5 flex flex-col justify-center gap-3 md:flex-row">
+        <div className="mt-5 flex flex-col flex-wrap justify-center gap-3 md:flex-row">
           <Button href={TEL_HREF}>
             <Phone className="h-5 w-5" />
             전화 연결
@@ -39,6 +39,12 @@ export default function ConsultPage() {
             <MessageCircle className="h-5 w-5" />
             카카오 채널 상담
           </Button>
+          {showForm && (
+            <Button href="#consult-form" variant="outline">
+              <ClipboardList className="h-5 w-5" />
+              온라인 신청서 작성
+            </Button>
+          )}
         </div>
       </div>
 
@@ -73,7 +79,14 @@ export default function ConsultPage() {
         </Link>
       </div>
 
-      {showForm && <ConsultForm />}
+      {showForm && (
+        <>
+          <h2 id="consult-form" className="heading-section mb-4">
+            온라인 상담 신청
+          </h2>
+          <ConsultForm />
+        </>
+      )}
     </Section>
   )
 }

@@ -14,10 +14,27 @@ const ctaItems = [
 const itemClass =
   'flex items-center gap-3 rounded-full bg-accent py-2 pl-4 pr-3 font-bold text-white shadow-lg hover:brightness-110'
 
+const isTextField = (target: EventTarget | null) =>
+  target instanceof HTMLTextAreaElement ||
+  (target instanceof HTMLInputElement && target.type !== 'radio' && target.type !== 'checkbox')
+
 export default function FloatingCTA() {
   const [open, setOpen] = useState(false)
   const rootRef = useRef<HTMLDivElement>(null)
   const toggleRef = useRef<HTMLButtonElement>(null)
+  const [typing, setTyping] = useState(false)
+
+  // 휴대폰 키보드 위로 하단 바가 떠서 입력 칸을 가리지 않도록 입력 중에는 숨깁니다.
+  useEffect(() => {
+    const onFocusIn = (e: FocusEvent) => setTyping(isTextField(e.target))
+    const onFocusOut = () => setTyping(false)
+    document.addEventListener('focusin', onFocusIn)
+    document.addEventListener('focusout', onFocusOut)
+    return () => {
+      document.removeEventListener('focusin', onFocusIn)
+      document.removeEventListener('focusout', onFocusOut)
+    }
+  }, [])
 
   useEffect(() => {
     if (!open) return
@@ -44,7 +61,7 @@ export default function FloatingCTA() {
       <nav
         data-quick-cta
         aria-label="빠른 상담"
-        className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 gap-2 border-t border-gray-200 bg-white p-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] lg:hidden"
+        className={`fixed inset-x-0 bottom-0 z-40 ${typing ? 'hidden' : 'grid'} grid-cols-2 gap-2 border-t border-gray-200 bg-white p-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] lg:hidden`}
       >
         <a
           href={TEL_HREF}

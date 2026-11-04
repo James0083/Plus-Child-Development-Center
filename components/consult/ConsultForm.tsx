@@ -3,10 +3,18 @@
 import { CheckCircle2 } from 'lucide-react'
 import Link from 'next/link'
 import Script from 'next/script'
-import { useCallback, useEffect, useRef, useState, type ChangeEvent, type ReactNode } from 'react'
-import { useForm } from 'react-hook-form'
+import { useCallback, useEffect, useRef, useState, useSyncExternalStore, type ChangeEvent, type ReactNode } from 'react'
+import { useForm, useWatch } from 'react-hook-form'
 import Button from '@/components/ui/Button'
-import { formatPhone, NAME_PATTERN, PHONE_PATTERN, sanitizeName } from '@/lib/consultRules'
+import {
+  formatPhone,
+  koreaToday,
+  MAX_CONTENT_LENGTH,
+  NAME_PATTERN,
+  PHONE_PATTERN,
+  preferDateError,
+  sanitizeName,
+} from '@/lib/consultRules'
 import { centerInfo, CONSULT_FORM_DEMO, PRIVACY_RETENTION, TEL_HREF, TURNSTILE_SITE_KEY } from '@/lib/constants'
 
 type TurnstileOptions = {
@@ -40,12 +48,7 @@ type ConsultFormValues = {
 const inputClass =
   'mt-2 w-full rounded-lg border border-gray-300 bg-white px-4 py-3 focus:border-primary focus:outline-hidden focus:ring-2 focus:ring-primary/30'
 
-// 사용자의 현지 날짜를 YYYY-MM-DD로 반환합니다.
-const today = () => {
-  const now = new Date()
-  const pad = (n: number) => String(n).padStart(2, '0')
-  return `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`
-}
+const subscribeToNothing = () => () => {}
 
 // 공백만 입력한 값도 빈 값으로 처리합니다.
 const notBlank = (message: string) => (value: string) => value.trim().length > 0 || message
@@ -99,8 +102,13 @@ export default function ConsultForm() {
   const {
     register,
     handleSubmit,
+    trigger,
+    control,
     formState: { errors },
   } = useForm<ConsultFormValues>()
+  const contentValue = useWatch({ control, name: 'content', defaultValue: '' })
+  // 미리 만든 HTML과 달라지지 않도록 브라우저에서만 오늘 날짜를 넣습니다.
+  const todayValue = useSyncExternalStore(subscribeToNothing, koreaToday, () => undefined)
 
   const renderTurnstile = useCallback(() => {
     const container = turnstileRef.current
@@ -240,12 +248,13 @@ export default function ConsultForm() {
       <Field name="birthDate" label="생년월일" required error={errors.birthDate?.message}>
         <input
           id="birthDate"
+          max={todayValue}
           type="date"
           className={inputClass}
           {...invalidProps('birthDate')}
           {...register('birthDate', {
             required: '생년월일을 입력해 주세요.',
-            validate: (value) => value <= today() || '생년월일은 미래 날짜일 수 없습니다.',
+            validate: (value) => value <= koreaToday() || '생년월일은 미래 날짜일 수 없습니다.',
           })}
         />
       </Field>
@@ -307,6 +316,7 @@ export default function ConsultForm() {
       <Field name="content" label="고민 / 상담 희망 내용" required error={errors.content?.message}>
         <textarea
           id="content"
+          maxLength={MAX_CONTENT_LENGTH}
           rows={5}
           className={inputClass}
           {...invalidProps('content')}
@@ -314,25 +324,37 @@ export default function ConsultForm() {
             validate: notBlank('상담 희망 내용을 입력해 주세요.'),
           })}
         />
+        <p className="mt-1 text-right text-sm text-muted">
+          {contentValue.length.toLocaleString()} / {MAX_CONTENT_LENGTH.toLocaleString()}
+        </p>
       </Field>
 
       <Field name="preferDate" label="희망 상담일" error={errors.preferDate?.message}>
         <input
           id="preferDate"
+          min={todayValue}
           type="date"
           className={inputClass}
           {...invalidProps('preferDate')}
           {...register('preferDate', {
-            validate: (value) => !value || value >= today() || '희망 상담일은 지난 날짜일 수 없습니다.',
+            validate: (value) => preferDateError(value) ?? true,
+            // 일요일을 고르면 제출 전에 바로 알려 줍니다.
+            onChange: () => trigger('preferDate'),
           })}
         />
+        <p className="mt-1 text-sm text-muted">공휴일은 휴무입니다. 상담 때 일정을 조정해 드립니다.</p>
       </Field>
 
       <div className="rounded-lg bg-cream p-4">
         <ul className="text-sm text-muted">
           <li>수집 항목: 아동 이름, 생년월일, 성별, 보호자 이름, 연락처, 상담 내용, 희망 상담일</li>
           <li>이용 목적: 상담 신청 확인 및 상담 진행</li>
-          <li>전달 방법: 입력한 내용은 센터 이메일로 전송됩니다.</li>
+          <li>
+            전달 방법:{' '}
+            {CONSULT_FORM_DEMO
+              ? '시연 화면에서는 전송되지 않습니다. 실제 신청 내용은 센터 이메일로 전달됩니다.'
+              : '입력한 내용은 센터 이메일로 전송됩니다.'}
+          </li>
           <li>보유 기간: {PRIVACY_RETENTION}</li>
         </ul>
         <label className="mt-1 flex items-start gap-2 py-2.5 font-bold">
