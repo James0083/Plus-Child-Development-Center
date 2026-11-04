@@ -3,7 +3,6 @@ import type { ReactNode } from 'react'
 const tones = {
   primary: 'bg-primary/10',
   mint: 'bg-mint/15',
-  accent: 'bg-accent/15',
 }
 
 type BadgeProps = {

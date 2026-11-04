@@ -281,7 +281,7 @@ export default function ConsultForm() {
           />
           개인정보 수집·이용 동의 (필수)
         </label>
-        <Link href="/privacy" target="_blank" className="inline-block py-2.5 text-sm text-primary-dark underline">
+        <Link href="/privacy" target="_blank" className="inline-block py-2.5 text-sm text-primary underline">
           개인정보처리방침 보기
           <span className="sr-only"> (새 창)</span>
         </Link>

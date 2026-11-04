@@ -79,7 +79,7 @@ export default function Navbar() {
                 className={
                   item.highlight
                     ? 'rounded-lg bg-accent px-4 py-2 font-bold text-white hover:brightness-110'
-                    : `hover:text-primary-dark ${pathname === item.href ? 'font-bold text-primary-dark' : ''}`
+                    : `hover:text-primary ${pathname === item.href ? 'font-bold text-primary' : ''}`
                 }
               >
                 {item.label}
@@ -119,7 +119,7 @@ export default function Navbar() {
                     onClick={() => setOpenedOn(null)}
                     aria-current={pathname === item.href ? 'page' : undefined}
                     className={`block rounded-lg px-4 py-4 text-lg font-bold ${
-                      item.highlight ? 'bg-accent text-white' : `hover:bg-primary/10 ${pathname === item.href ? 'text-primary-dark' : ''}`
+                      item.highlight ? 'bg-accent text-white' : `hover:bg-primary/10 ${pathname === item.href ? 'text-primary' : ''}`
                     }`}
                   >
                     {item.label}

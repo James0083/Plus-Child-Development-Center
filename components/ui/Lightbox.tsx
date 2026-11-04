@@ -102,9 +102,10 @@ function LightboxDialog({ photos, index, onChange, onClose }: {
 }
 
 // 사진을 누르면 크게 보여 줍니다. 여러 장이면 좌우로 넘길 수 있습니다.
-export function ZoomableImage({ photos, index = 0, sizes, className = '', imageClassName = '', objectPosition }: {
+export function ZoomableImage({ photos, index = 0, thumbSrc, sizes, className = '', imageClassName = '', objectPosition }: {
   photos: LightboxPhoto[]
   index?: number
+  thumbSrc?: string
   sizes: string
   className?: string
   imageClassName?: string
@@ -122,7 +123,7 @@ export function ZoomableImage({ photos, index = 0, sizes, className = '', imageC
         className={`block w-full cursor-zoom-in overflow-hidden rounded-lg ${className}`}
       >
         <Image
-          src={photo.src}
+          src={thumbSrc ?? photo.src}
           alt=""
           width={photo.width}
           height={photo.height}

@@ -53,7 +53,7 @@ export default function ProgramTab() {
               onClick={() => select(program.id)}
               onKeyDown={(e) => onKeyDown(e, index)}
               className={`scroll-mt-24 rounded-lg px-3 py-3 last:col-span-2 xl:last:col-span-1 text-sm font-bold transition-colors ${
-                selected ? 'bg-primary-dark text-white' : 'bg-white text-ink shadow-xs hover:bg-primary/10'
+                selected ? 'bg-primary text-white' : 'bg-white text-ink shadow-xs hover:bg-primary/10'
               }`}
             >
               {program.title}

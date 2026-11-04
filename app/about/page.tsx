@@ -42,7 +42,7 @@ export default function AboutPage() {
             {staff.fields.map((field) => (
               <li key={field.name} className="rounded-2xl bg-cream p-6 text-center last:col-span-2 md:last:col-span-1">
                 <p className="text-lg font-bold">{field.name}</p>
-                <p className="mt-1 text-2xl font-extrabold text-primary-dark">{field.count}명</p>
+                <p className="mt-1 text-2xl font-extrabold text-primary">{field.count}명</p>
               </li>
             ))}
           </ul>
@@ -56,7 +56,7 @@ export default function AboutPage() {
             {history.map((item) => (
               <li key={item.date} className="relative pb-8 pl-8 last:pb-0">
                 <span className="absolute left-[-7px] top-1.5 h-3 w-3 rounded-full bg-primary" aria-hidden />
-                <p className="font-bold text-primary-dark">{item.date}</p>
+                <p className="font-bold text-primary">{item.date}</p>
                 <p className="mt-1">{item.event}</p>
               </li>
             ))}

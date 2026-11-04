@@ -50,7 +50,7 @@ npm run dev
 
 | 기능 | 상태 | 재개 방법 |
 |---|---|---|
-| 학부모 계정·결제 | 계획만 있음 | [docs/parent-account-payment-plan.md](docs/parent-account-payment-plan.md) |
+| 학부모 계정·결제 | 계획만 있음 | [docs/archive/parent-account-payment-plan.md](docs/archive/parent-account-payment-plan.md) |
 | 토스 결제 시연 | 이 브랜치에 없음 | `feature/toss-payment-demo` 브랜치에 보존 |
 
 ## 버전 정책

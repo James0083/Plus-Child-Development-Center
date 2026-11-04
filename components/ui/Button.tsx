@@ -2,12 +2,12 @@ import Link from 'next/link'
 import type { ReactNode } from 'react'
 
 const base =
-  'inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 font-bold transition-colors focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-dark disabled:opacity-60'
+  'inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 font-bold transition-colors focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:opacity-60'
 
 const variants = {
   primary: 'bg-accent text-white hover:brightness-110',
   secondary: 'border-2 border-white text-white hover:bg-white/10',
-  outline: 'border-2 border-primary text-primary-dark hover:bg-primary/10',
+  outline: 'border-2 border-primary text-primary hover:bg-primary/10',
 }
 
 type ButtonProps = {

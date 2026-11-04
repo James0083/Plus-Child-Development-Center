@@ -25,8 +25,10 @@ export const vouchers = [
   },
 ]
 
+export const voucherSupportNote = '바우처를 이용하면 비용의 약 50%를 지원받을 수 있으며, 소득에 따라 지원금이 달라집니다.'
+
 export const voucherCommonNotes = [
-  '바우처를 이용하면 비용의 약 50%를 지원받을 수 있으며, 소득에 따라 지원금이 달라집니다.',
+  voucherSupportNote,
   '기존 이용자는 매년 2회(반기별) 소득 기준을 조사해 적합하면 계속 이용할 수 있습니다.',
 ]
 

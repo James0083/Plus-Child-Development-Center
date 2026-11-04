@@ -18,34 +18,34 @@ export default function MapSection() {
             className="self-start overflow-hidden rounded-2xl bg-white shadow-sm transition-shadow hover:shadow-lg md:col-span-3"
           >
             <Image
-              src="/images/map.jpg"
-              width={1200}
-              height={1053}
+              src="/images/map.webp"
+              width={1000}
+              height={877}
               alt={`${centerInfo.name} 위치를 표시한 네이버 지도`}
               className="h-auto w-full"
             />
-            <span className="block p-4 text-center font-bold text-primary-dark">네이버 지도에서 보기<span className="sr-only"> (새 창)</span></span>
+            <span className="block p-4 text-center font-bold text-primary">네이버 지도에서 보기<span className="sr-only"> (새 창)</span></span>
           </a>
 
           <div className="flex flex-col gap-5 md:col-span-2">
             <h3 className="text-lg font-bold">{centerInfo.name}</h3>
             <div className="flex gap-3">
-              <MapPin className="h-5 w-5 shrink-0 text-primary-dark" aria-hidden />
+              <MapPin className="h-5 w-5 shrink-0 text-primary" aria-hidden />
               <div>
                 <p>{centerInfo.address}</p>
                 <p className="mt-1 text-sm text-muted">지번: {centerInfo.addressLot}</p>
               </div>
             </div>
             <div className="flex gap-3">
-              <Car className="h-5 w-5 shrink-0 text-primary-dark" aria-hidden />
+              <Car className="h-5 w-5 shrink-0 text-primary" aria-hidden />
               <p>주차장: {centerInfo.parking}</p>
             </div>
             <div className="flex gap-3">
-              <Accessibility className="h-5 w-5 shrink-0 text-primary-dark" aria-hidden />
+              <Accessibility className="h-5 w-5 shrink-0 text-primary" aria-hidden />
               <p>편의시설: {centerInfo.amenities.join(', ')}</p>
             </div>
             <div className="flex gap-3">
-              <Bus className="h-5 w-5 shrink-0 text-primary-dark" aria-hidden />
+              <Bus className="h-5 w-5 shrink-0 text-primary" aria-hidden />
               <div>
                 <p>버스 정류장</p>
                 <ul className="mt-1 space-y-1 text-sm">
@@ -58,13 +58,13 @@ export default function MapSection() {
               </div>
             </div>
             <div className="flex gap-3">
-              <Phone className="h-5 w-5 shrink-0 text-primary-dark" aria-hidden />
+              <Phone className="h-5 w-5 shrink-0 text-primary" aria-hidden />
               <a href={TEL_HREF} className="-my-2.5 py-2.5 hover:underline">
                 {centerInfo.phone}
               </a>
             </div>
             <div className="flex gap-3">
-              <Clock className="h-5 w-5 shrink-0 text-primary-dark" aria-hidden />
+              <Clock className="h-5 w-5 shrink-0 text-primary" aria-hidden />
               <ul>
                 <li>{centerInfo.hours.regular}</li>
                 <li>{centerInfo.hours.closed}</li>

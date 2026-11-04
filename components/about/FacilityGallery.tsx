@@ -9,6 +9,7 @@ export default function FacilityGallery() {
           <ZoomableImage
             photos={facilities}
             index={index}
+            thumbSrc={facility.thumb}
             sizes="(min-width: 75rem) 25vw, (min-width: 48rem) 50vw, 100vw"
             imageClassName="aspect-4/3 object-cover"
             objectPosition={facility.position}

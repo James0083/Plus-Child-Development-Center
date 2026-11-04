@@ -10,4 +10,3 @@ export const consultFees = [
   { item: '치료 비용', fee: '1회 55,000원 × 월 4회 = 월 220,000원' },
 ]
 
-export const consultFeeNote = '바우처를 이용하면 비용의 약 50%를 지원받을 수 있으며, 소득에 따라 지원금이 달라집니다.'

@@ -17,14 +17,14 @@ export default function TimetableSection() {
           {sessions[0].start}부터 {sessions[sessions.length - 1].end}까지 {sessionMinutes}분 단위, 총 {sessions.length}회기
         </p>
         <details className="group mx-auto mt-6 max-w-md">
-          <summary className="flex cursor-pointer list-none items-center justify-center gap-2 rounded-lg border-2 border-primary px-6 py-3 font-bold text-primary-dark hover:bg-primary/10 [&::-webkit-details-marker]:hidden">
+          <summary className="flex cursor-pointer list-none items-center justify-center gap-2 rounded-lg border-2 border-primary px-6 py-3 font-bold text-primary hover:bg-primary/10 [&::-webkit-details-marker]:hidden">
             회기별 시간 전체 보기
             <ChevronDown className="h-5 w-5 transition-transform group-open:rotate-180" aria-hidden />
           </summary>
           <div className="mt-4 overflow-hidden rounded-2xl border border-gray-200">
             <table className="w-full border-collapse text-center">
               <caption className="sr-only">회기별 치료 시간</caption>
-              <thead className="bg-primary-dark text-white">
+              <thead className="bg-primary text-white">
                 <tr>
                   <th scope="col" className="w-1/3 px-4 py-3 font-bold">
                     회기

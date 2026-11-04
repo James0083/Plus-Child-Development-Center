@@ -16,7 +16,7 @@ export default function SchoolReady() {
   return (
     <article id={schoolReady.id} className="mt-10 grid scroll-mt-24 gap-8 rounded-2xl bg-white p-6 shadow-sm md:grid-cols-2 md:p-8">
       <div>
-        <p className="font-bold text-primary-dark">{schoolReady.label}</p>
+        <p className="font-bold text-primary">{schoolReady.label}</p>
         <h2 className="mt-1 text-2xl font-extrabold">{schoolReady.title}</h2>
         <div className="mt-2">
           <Badge tone="mint">대상: {schoolReady.target}</Badge>

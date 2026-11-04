@@ -4,7 +4,7 @@ import { PHONE, TEL_HREF } from '@/lib/constants'
 
 export default function QuickConsult() {
   return (
-    <section className="bg-primary-dark text-white">
+    <section className="bg-primary text-white">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-4 py-14 text-center">
         <div>
           <h2 className="text-2xl font-extrabold">우리 아이 발달이 걱정되시나요?</h2>

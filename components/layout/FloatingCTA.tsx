@@ -49,7 +49,7 @@ export default function FloatingCTA() {
           href={KAKAO_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 rounded-lg border-2 border-primary py-2.5 font-bold text-primary-dark"
+          className="flex items-center justify-center gap-2 rounded-lg border-2 border-primary py-2.5 font-bold text-primary"
         >
           <MessageCircle className="h-5 w-5" aria-hidden />
           카카오 상담

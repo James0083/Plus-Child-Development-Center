@@ -40,7 +40,7 @@ export default function VoucherPage() {
       <ol className="mt-4 grid grid-cols-2 gap-3 xl:grid-cols-4">
         {voucherSteps.map((step, index) => (
           <li key={step} className="flex items-center gap-3 rounded-lg bg-primary-soft p-4 font-bold">
-            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary-dark text-sm text-white">
+            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-sm text-white">
               {index + 1}
             </span>
             {step}
@@ -72,7 +72,7 @@ export default function VoucherPage() {
               {contact.label}:{' '}
               <a
                 href={contact.href}
-                className="inline-block py-2.5 font-bold text-primary-dark underline"
+                className="inline-block py-2.5 font-bold text-primary underline"
                 {...(contact.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
               >
                 {contact.value}

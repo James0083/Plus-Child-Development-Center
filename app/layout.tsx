@@ -49,7 +49,7 @@ export default function RootLayout({
       <body className={`${font.className} flex min-h-screen flex-col bg-cream text-ink antialiased`}>
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-2 focus:z-60 focus:rounded-lg focus:bg-white focus:px-4 focus:py-3 focus:font-bold focus:text-primary-dark focus:shadow-lg"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-2 focus:z-60 focus:rounded-lg focus:bg-white focus:px-4 focus:py-3 focus:font-bold focus:text-primary focus:shadow-lg"
         >
           본문 바로가기
         </a>
