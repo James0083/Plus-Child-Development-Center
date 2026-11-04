@@ -8,6 +8,8 @@ import './globals.css'
 const font = Nanum_Gothic({
   subsets: ['latin'],
   weight: ['400', '700', '800'],
+  // 한글 글꼴은 파일이 많아 미리 받으면 첫 화면이 크게 늦어집니다.
+  preload: false,
 })
 
 const description = '전문 치료사와 함께하는 맞춤 아동발달 프로그램으로 우리 아이의 건강한 성장을 지원합니다.'

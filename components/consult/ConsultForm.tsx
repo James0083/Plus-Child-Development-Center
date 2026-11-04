@@ -176,6 +176,7 @@ export default function ConsultForm() {
   }
 
   // 입력값을 정리한 뒤 폼에 넘겨, 화면과 전송 값이 같게 합니다.
+  // 등록 순서가 오류 이동 순서이므로 register는 입력 칸을 그릴 때 호출합니다.
   const cleaned = (clean: (value: string) => string, onChange: (event: ChangeEvent<HTMLInputElement>) => unknown) => ({
     onChange: (event: ChangeEvent<HTMLInputElement>) => {
       const value = clean(event.target.value)
@@ -194,14 +195,16 @@ export default function ConsultForm() {
     return { ...field, ...cleaned(sanitizeName, field.onChange) }
   }
 
-  const phoneRegister = register('phone', {
-    required: '연락처를 입력해 주세요.',
-    pattern: {
-      value: PHONE_PATTERN,
-      message: '연락처 형식을 확인해 주세요. (예: 010-0000-0000)',
-    },
-  })
-  const phoneField = { ...phoneRegister, ...cleaned(formatPhone, phoneRegister.onChange) }
+  const phoneField = () => {
+    const field = register('phone', {
+      required: '연락처를 입력해 주세요.',
+      pattern: {
+        value: PHONE_PATTERN,
+        message: '연락처 형식을 확인해 주세요. (예: 010-0000-0000)',
+      },
+    })
+    return { ...field, ...cleaned(formatPhone, field.onChange) }
+  }
 
   const invalidProps = (name: keyof ConsultFormValues) => ({
     'aria-required': name === 'preferDate' ? undefined : true,
@@ -297,7 +300,7 @@ export default function ConsultForm() {
           {...invalidProps('phone')}
           inputMode="numeric"
           maxLength={13}
-          {...phoneField}
+          {...phoneField()}
         />
       </Field>
 
