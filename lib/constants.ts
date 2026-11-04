@@ -14,9 +14,14 @@ export const centerInfo = {
   address: ADDRESS,
   addressLot: ADDRESS_LOT,
   phone: PHONE,
-  parking: '건물 앞 주차 가능. 주차장 있음.',
+  parking: '건물 앞, 건물 1층',
+  busStops: [
+    { name: '광주성남하남산림조합', walk: '도보 2분' },
+    { name: '광주 중앙고등학교', walk: '도보 3분' },
+    { name: '역동', walk: '도보 4분' },
+  ],
   hours: {
-    regular: '월~토 08:50 ~ 19:40',
+    regular: '월~토 08:50 ~ 20:00',
     closed: '일요일·공휴일 휴무',
   },
   kakao: KAKAO_URL,
@@ -34,7 +39,10 @@ export const footerInfo = {
   email: 'pluscenter4052@naver.com',
 }
 
-export const PRIVACY_RETENTION = '상담 완료 후 1년' // [DUMMY] 실제 보관 정책 확정 후 교체
+export const PRIVACY_RETENTION = '상담 완료 후 1년'
+
+// 개인정보처리방침과 이용약관의 시행일입니다. 실제 공개일로 맞춥니다.
+export const LEGAL_EFFECTIVE_DATE = '2026년 11월 4일'
 
 // 메일 전송을 시험한 뒤에만 켭니다. 꺼져 있으면 전화와 카카오 채널로만 안내합니다.
 export const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? ''

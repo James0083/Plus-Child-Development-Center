@@ -1,5 +1,6 @@
-import { ImageIcon, User } from 'lucide-react'
+import { User } from 'lucide-react'
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import SectionTitle from '@/components/ui/SectionTitle'
 import { facilities, history, partners, staff, values } from '@/data/history'
 import { DIRECTOR_NAME, DIRECTOR_TITLE } from '@/lib/constants'
@@ -97,14 +98,16 @@ export default function AboutPage() {
           <SectionTitle title="시설 안내" />
           <ul className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {facilities.map((facility) => (
-              <li key={facility.name}>
-                {/* 실제 시설 사진 수령 전까지 플레이스홀더를 표시합니다. */}
-                <div className="flex aspect-video items-center justify-center rounded-lg bg-gray-200">
-                  <ImageIcon className="h-12 w-12 text-gray-400" aria-hidden />
-                  <span className="ml-2 text-gray-500">시설 사진</span>
-                </div>
+              <li key={facility.src}>
+                <Image
+                  src={facility.src}
+                  alt={facility.alt}
+                  width={facility.width}
+                  height={facility.height}
+                  sizes="(min-width: 75rem) 33vw, (min-width: 48rem) 50vw, 100vw"
+                  className="aspect-4/3 w-full rounded-lg object-cover"
+                />
                 <h3 className="mt-3 text-lg font-semibold">{facility.name}</h3>
-                <p className="mt-1">{facility.desc}</p>
               </li>
             ))}
           </ul>

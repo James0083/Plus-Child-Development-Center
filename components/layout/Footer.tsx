@@ -33,9 +33,14 @@ export default function Footer() {
         </dl>
         <div className="mt-6 flex flex-col gap-2 border-t border-white/20 pt-6 md:flex-row md:justify-between">
           <p>© {new Date().getFullYear()} 플러스 아동발달센터. All rights reserved.</p>
-          <Link href="/privacy" className="font-semibold text-white hover:underline">
-            개인정보처리방침
-          </Link>
+          <div className="flex gap-4">
+            <Link href="/privacy" className="font-semibold text-white hover:underline">
+              개인정보처리방침
+            </Link>
+            <Link href="/terms" className="text-white hover:underline">
+              이용약관
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

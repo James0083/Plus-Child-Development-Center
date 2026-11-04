@@ -10,6 +10,7 @@ const navItems = [
   { label: '센터 소개', href: '/about' },
   { label: '프로그램 안내', href: '/programs' },
   { label: '활동 안내', href: '/activities' },
+  { label: '바우처 안내', href: '/voucher' },
   { label: '상담 신청', href: '/consult', highlight: true },
   { label: '공지사항', href: '/notice' },
 ]

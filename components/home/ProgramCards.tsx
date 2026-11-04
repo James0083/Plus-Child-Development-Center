@@ -7,7 +7,7 @@ import { programIconBg, programs } from '@/data/programs'
 export default function ProgramCards() {
   return (
     <section className="mx-auto max-w-6xl px-4 py-16">
-      <SectionTitle title="프로그램 안내" description="아이의 발달 특성에 맞는 1:1 맞춤 프로그램을 운영합니다." />
+      <SectionTitle title="프로그램 안내" description="아이의 발달 특성에 맞는 맞춤 프로그램을 운영합니다." />
       <ul className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
         {programs.map((program) => (
           <li
@@ -21,7 +21,7 @@ export default function ProgramCards() {
               >
                 {program.icon}
               </span>
-              <Badge tone={program.color}>{program.target}</Badge>
+              {program.ages && <Badge tone={program.color}>{program.ages}</Badge>}
             </div>
             <h3 className="mt-4 text-lg font-semibold">{program.title}</h3>
             <p className="mt-2 flex-1 text-base font-normal">{program.desc}</p>

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     template: "%s | 플러스 아동발달센터",
   },
   description:
-    "전문 치료사와 함께하는 1:1 맞춤 아동발달 프로그램으로 우리 아이의 건강한 성장을 지원합니다.",
+    "전문 치료사와 함께하는 맞춤 아동발달 프로그램으로 우리 아이의 건강한 성장을 지원합니다.",
 };
 
 export default function RootLayout({

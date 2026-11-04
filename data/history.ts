@@ -25,14 +25,16 @@ export const partners = [
   },
 ]
 
-// [DUMMY] 실제 시설 구성으로 교체합니다.
+// 시설 사진 목록입니다.
 export const facilities = [
-  { name: '대기실', desc: '치료 시간 동안 보호자와 형제자매가 편하게 기다릴 수 있는 공간입니다.' },
-  { name: '언어치료실', desc: '1:1 치료에 집중할 수 있도록 조용하게 구성한 공간입니다.' },
-  { name: '인지치료실', desc: '과제 활동과 학습 준비 훈련에 맞춘 책상과 교구를 갖추었습니다.' },
-  { name: '감각통합치료실', desc: '그네, 매트 등 전문 도구로 몸을 움직이며 활동하는 공간입니다.' },
-  { name: '놀이·미술치료실', desc: '놀잇감과 미술 재료로 자유롭게 표현할 수 있는 공간입니다.' },
-  { name: '부모상담실', desc: '치료 경과와 양육 고민을 편안하게 나눌 수 있는 공간입니다.' },
+  { src: '/images/hero-bg.jpg', width: 1280, height: 853, name: '건물 전경', alt: '플러스 아동발달센터 건물과 앞 주차장' },
+  { src: '/images/facility/room-1.jpg', width: 1280, height: 960, name: '공용 활동 공간', alt: '매트와 터널 놀이기구, 책장이 있는 넓은 실내 공간' },
+  { src: '/images/facility/room-2.jpg', width: 1280, height: 960, name: '치료실1', alt: '창가에 책상과 의자, 화이트보드가 있는 방' },
+  { src: '/images/facility/room-3.jpg', width: 1280, height: 960, name: '치료실2', alt: '교구 책장과 아동용 책상, 놀이 매트가 있는 방' },
+  { src: '/images/facility/room-4.jpg', width: 1280, height: 960, name: '치료실3', alt: '장난감과 책이 가득한 책장, 책상이 있는 방' },
+  { src: '/images/facility/room-5.jpg', width: 1280, height: 960, name: '치료실4', alt: '책상과 의자, 소꿉놀이 주방과 교구장이 있는 방' },
+  { src: '/images/facility/room-6.jpg', width: 1280, height: 960, name: '치료실5', alt: '장난감 선반과 둥근 책상, 깔개가 있는 방' },
+  { src: '/images/facility/room-7.jpg', width: 1280, height: 960, name: '치료실6', alt: '노란 책상과 교재가 꽂힌 책장이 있는 방' },
 ]
 
 // [DUMMY]

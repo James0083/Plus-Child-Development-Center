@@ -79,15 +79,17 @@ export default function ProgramTab() {
           </span>
           <div>
             <h2 className="text-2xl font-semibold lg:text-3xl">{active.title}</h2>
-            <div className="mt-2">
-              <Badge tone={active.color}>대상: {active.target}</Badge>
-            </div>
+            {active.ages && (
+              <div className="mt-2">
+                <Badge tone={active.color}>대상: {active.ages}</Badge>
+              </div>
+            )}
           </div>
         </div>
         <p className="mt-6 text-base font-normal">{active.desc}</p>
         <div className="mt-6 grid gap-6 md:grid-cols-2">
           <div>
-            <h3 className="text-lg font-semibold">이런 경우 도움이 됩니다</h3>
+            <h3 className="text-lg font-semibold">이런 아동에게 도움이 됩니다</h3>
             <ul className="mt-2 list-disc space-y-1 pl-5">
               {active.targets.map((item) => (
                 <li key={item}>{item}</li>
@@ -95,9 +97,9 @@ export default function ProgramTab() {
             </ul>
           </div>
           <div>
-            <h3 className="text-lg font-semibold">주요 활동</h3>
+            <h3 className="text-lg font-semibold">치료 내용</h3>
             <ul className="mt-2 list-disc space-y-1 pl-5">
-              {active.activities.map((item) => (
+              {active.details.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>

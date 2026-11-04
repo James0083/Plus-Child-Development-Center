@@ -44,7 +44,7 @@ export default function HeroBanner() {
             함께 키워갑니다
           </motion.h1>
           <motion.p variants={fadeInUp} className="mt-6 max-w-xl text-base font-semibold text-shadow-lg text-shadow-black/80">
-            전문 치료사와 함께하는 1:1 맞춤 아동발달 프로그램으로 우리 아이의 건강한 성장을 지원합니다.
+            전문 치료사와 함께하는 맞춤 아동발달 프로그램으로 우리 아이의 건강한 성장을 지원합니다.
           </motion.p>
           <motion.div variants={fadeInUp} className="mt-8 flex flex-wrap gap-3">
             <Button href="/consult">상담 신청하기</Button>

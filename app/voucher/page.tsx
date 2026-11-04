@@ -1,0 +1,61 @@
+import type { Metadata } from 'next'
+import Button from '@/components/ui/Button'
+import SectionTitle from '@/components/ui/SectionTitle'
+import { voucherContacts, voucherIntro, voucherSections, voucherSteps } from '@/data/voucher'
+
+export const metadata: Metadata = { title: '바우처 안내' }
+
+export default function VoucherPage() {
+  return (
+    <section className="mx-auto max-w-6xl px-4 py-16">
+      <SectionTitle as="h1" title="발달재활서비스 바우처 안내" description={voucherIntro} />
+
+      <ul className="grid gap-6 md:grid-cols-2">
+        {voucherSections.map((section) => (
+          <li key={section.title} className="rounded-2xl bg-white p-6 shadow-sm">
+            <h2 className="text-lg font-semibold">{section.title}</h2>
+            <ul className="mt-3 list-disc space-y-2 pl-5">
+              {section.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ul>
+
+      <h2 className="mt-12 text-lg font-semibold">이용 절차</h2>
+      <ol className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+        {voucherSteps.map((step, index) => (
+          <li key={step} className="flex items-center gap-3 rounded-lg bg-primary/10 p-4 font-semibold">
+            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary-dark text-sm text-white">
+              {index + 1}
+            </span>
+            {step}
+          </li>
+        ))}
+      </ol>
+
+      <div className="mt-12 rounded-2xl bg-white p-6 text-center shadow-sm">
+        <h2 className="text-lg font-semibold">확인과 문의</h2>
+        <p className="mt-2">지원 기준과 금액은 해마다 달라질 수 있습니다.</p>
+        <ul className="mt-3 flex flex-col justify-center gap-2 md:flex-row md:gap-6">
+          {voucherContacts.map((contact) => (
+            <li key={contact.label}>
+              {contact.label}:{' '}
+              <a
+                href={contact.href}
+                className="font-semibold text-primary-dark underline"
+                {...(contact.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+              >
+                {contact.value}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <Button href="/consult" className="mt-5">
+          센터에 이용 상담하기
+        </Button>
+      </div>
+    </section>
+  )
+}
