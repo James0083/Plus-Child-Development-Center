@@ -3,7 +3,7 @@ import { sessionMinutes, sessions } from '@/data/schedule'
 import { centerInfo } from '@/lib/constants'
 
 export default function TimetableSection() {
-  const { regular, sunday } = centerInfo.hours
+  const { regular, closed } = centerInfo.hours
 
   return (
     <section className="bg-white">
@@ -40,7 +40,7 @@ export default function TimetableSection() {
           </table>
         </div>
         <p className="mt-4 text-center text-sm font-light text-muted">
-          운영시간: {regular} / {sunday}
+          운영시간: {regular} / {closed}
         </p>
       </div>
     </section>

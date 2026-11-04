@@ -1,6 +1,7 @@
 'use client'
 
 import { Menu, X } from 'lucide-react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
@@ -42,9 +43,8 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-white shadow-xs">
       <nav aria-label="주 메뉴" className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
-        {/* [DUMMY] 실제 로고 이미지로 교체 예정 */}
-        <Link href="/" className="text-xl font-bold text-primary-dark">
-          플러스+
+        <Link href="/" className="shrink-0">
+          <Image src="/logo/logo.svg" alt="플러스 아동발달센터" width={829} height={127} preload className="h-7 w-auto md:h-6 lg:h-9" />
         </Link>
 
         <ul className="hidden items-center gap-6 md:flex">
@@ -79,8 +79,8 @@ export default function Navbar() {
       {open && (
         <div className="fixed inset-0 z-50 flex flex-col bg-white md:hidden">
           <div className="flex h-16 items-center justify-between px-4">
-            <Link href="/" onClick={() => setOpenedOn(null)} className="text-xl font-bold text-primary-dark">
-              플러스+
+            <Link href="/" onClick={() => setOpenedOn(null)} className="shrink-0">
+              <Image src="/logo/logo.svg" alt="플러스 아동발달센터" width={829} height={127} className="h-7 w-auto" />
             </Link>
             <button type="button" onClick={() => setOpenedOn(null)} aria-label="메뉴 닫기" className="p-2" autoFocus>
               <X className="h-6 w-6" />

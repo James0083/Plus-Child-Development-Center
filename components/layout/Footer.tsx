@@ -9,7 +9,7 @@ export default function Footer() {
         <p className="text-lg font-semibold text-white">{footerInfo.name}</p>
         <dl className="mt-4 grid gap-1 md:grid-cols-2">
           <div>
-            <dt className="inline">센터장 </dt>
+            <dt className="inline">대표(센터장) </dt>
             <dd className="inline">{footerInfo.director}</dd>
           </div>
           <div>
@@ -18,7 +18,9 @@ export default function Footer() {
           </div>
           <div>
             <dt className="inline">주소 </dt>
-            <dd className="inline">{footerInfo.address}</dd>
+            <dd className="inline">
+              {footerInfo.address} (지번: {footerInfo.addressLot})
+            </dd>
           </div>
           <div>
             <dt className="inline">전화 </dt>

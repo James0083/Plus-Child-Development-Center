@@ -35,8 +35,8 @@ const sections = [
     body: '보유 기간이 끝나거나 처리 목적을 달성한 개인정보는 지체 없이 파기합니다. 전자 파일은 복구할 수 없는 방법으로 삭제하고, 종이 문서는 분쇄하거나 소각합니다.',
   },
   {
-    title: '8. 개인정보 문의처',
-    body: `${footerInfo.name} / 전화 ${footerInfo.phone} / 이메일 ${footerInfo.email}`,
+    title: '8. 개인정보 보호책임자 및 문의처',
+    body: `개인정보 보호책임자 센터장 ${footerInfo.director} / ${footerInfo.name} / 전화 ${footerInfo.phone} / 이메일 ${footerInfo.email}`,
   },
 ]
 

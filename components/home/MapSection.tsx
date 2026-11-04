@@ -1,7 +1,7 @@
-import { Clock, MapPin, MessageCircle, Phone } from 'lucide-react'
+import { Car, Clock, MapPin, MessageCircle, Phone } from 'lucide-react'
 import Button from '@/components/ui/Button'
 import SectionTitle from '@/components/ui/SectionTitle'
-import { centerInfo, KAKAO_CHANNEL_NAME, NAVER_MAP_URL, TEL_HREF } from '@/lib/constants'
+import { centerInfo, NAVER_MAP_URL, TEL_HREF } from '@/lib/constants'
 
 export default function MapSection() {
   return (
@@ -12,7 +12,10 @@ export default function MapSection() {
           {/* map.naver.com은 X-Frame-Options: DENY로 iframe 삽입을 막아 링크 패널로 대체합니다. */}
           <div className="flex h-[400px] flex-col items-center justify-center gap-4 rounded-2xl bg-mint/15 p-6 text-center md:col-span-3">
             <MapPin className="h-12 w-12 text-primary-dark" aria-hidden />
-            <p className="font-semibold">{centerInfo.address}</p>
+            <div>
+              <p className="font-semibold">{centerInfo.address}</p>
+              <p className="mt-1 text-sm font-light text-muted">지번: {centerInfo.addressLot}</p>
+            </div>
             <Button href={NAVER_MAP_URL} variant="outline">
               네이버 지도에서 보기
             </Button>
@@ -22,7 +25,14 @@ export default function MapSection() {
             <h3 className="text-lg font-semibold">{centerInfo.name}</h3>
             <div className="flex gap-3">
               <MapPin className="h-5 w-5 shrink-0 text-primary-dark" aria-hidden />
-              <p>{centerInfo.address}</p>
+              <div>
+                <p>{centerInfo.address}</p>
+                <p className="mt-1 text-sm font-light text-muted">지번: {centerInfo.addressLot}</p>
+              </div>
+            </div>
+            <div className="flex gap-3">
+              <Car className="h-5 w-5 shrink-0 text-primary-dark" aria-hidden />
+              <p>{centerInfo.parking}</p>
             </div>
             <div className="flex gap-3">
               <Phone className="h-5 w-5 shrink-0 text-primary-dark" aria-hidden />
@@ -34,20 +44,13 @@ export default function MapSection() {
               <Clock className="h-5 w-5 shrink-0 text-primary-dark" aria-hidden />
               <ul>
                 <li>{centerInfo.hours.regular}</li>
-                <li>{centerInfo.hours.sunday}</li>
+                <li>{centerInfo.hours.closed}</li>
               </ul>
             </div>
-            {centerInfo.kakao ? (
-              <Button href={centerInfo.kakao} className="mt-auto">
-                <MessageCircle className="h-5 w-5" />
-                카카오 채널 상담
-              </Button>
-            ) : (
-              <div className="flex gap-3">
-                <MessageCircle className="h-5 w-5 shrink-0 text-primary-dark" aria-hidden />
-                <p>카카오톡 채널: {KAKAO_CHANNEL_NAME}</p>
-              </div>
-            )}
+            <Button href={centerInfo.kakao} className="mt-auto">
+              <MessageCircle className="h-5 w-5" />
+              카카오 채널 상담
+            </Button>
           </div>
         </div>
       </div>
