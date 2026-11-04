@@ -6,7 +6,7 @@ import Script from 'next/script'
 import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
 import { useForm } from 'react-hook-form'
 import Button from '@/components/ui/Button'
-import { centerInfo, PRIVACY_RETENTION, TEL_HREF, TURNSTILE_SITE_KEY } from '@/lib/constants'
+import { centerInfo, CONSULT_FORM_DEMO, PRIVACY_RETENTION, TEL_HREF, TURNSTILE_SITE_KEY } from '@/lib/constants'
 
 type TurnstileOptions = {
   sitekey: string
@@ -128,6 +128,11 @@ export default function ConsultForm() {
   }, [submitted])
 
   const onSubmit = async (values: ConsultFormValues) => {
+    if (CONSULT_FORM_DEMO) {
+      setSubmitted(true)
+      return
+    }
+
     if (!turnstileToken) {
       setSendError('보안 확인이 끝난 뒤 다시 눌러 주세요.')
       return
@@ -161,7 +166,9 @@ export default function ConsultForm() {
       <div ref={doneRef} tabIndex={-1} role="status" className="card p-10 text-center outline-hidden">
         <CheckCircle2 className="mx-auto h-12 w-12 text-mint" aria-hidden />
         <p className="mt-4 whitespace-pre-line text-lg font-bold">
-          {'상담 신청이 완료되었습니다.\n영업일 기준 1~2일 내로 연락드리겠습니다. 감사합니다.'}
+          {CONSULT_FORM_DEMO
+            ? '시연이 끝났습니다. 입력한 내용은 전송되지 않았습니다.\n실제 상담은 전화나 카카오 채널로 문의해 주세요.'
+            : '상담 신청이 완료되었습니다.\n영업일 기준 1~2일 내로 연락드리겠습니다. 감사합니다.'}
         </p>
       </div>
     )
@@ -175,6 +182,11 @@ export default function ConsultForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-6 card p-6 md:p-8">
+      {CONSULT_FORM_DEMO && (
+        <p className="rounded-lg bg-primary-soft p-4 font-bold">
+          시연용 화면입니다. 입력한 내용은 전송되거나 저장되지 않으니 실제 정보를 입력하지 마세요.
+        </p>
+      )}
       <p className="text-sm text-muted">
         <span aria-hidden className="mr-1 text-red-700">
           *
@@ -309,12 +321,16 @@ export default function ConsultForm() {
         <ErrorText id="privacy-error" message={errors.privacy?.message} />
       </div>
 
-      <Script
-        src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
-        strategy="afterInteractive"
-        onReady={renderTurnstile}
-      />
-      <div ref={turnstileRef} />
+      {!CONSULT_FORM_DEMO && (
+        <>
+          <Script
+            src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+            strategy="afterInteractive"
+            onReady={renderTurnstile}
+          />
+          <div ref={turnstileRef} />
+        </>
+      )}
 
       {sendError && (
         <div role="alert" className="rounded-lg bg-accent/15 p-4 text-sm">

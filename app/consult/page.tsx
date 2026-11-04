@@ -7,13 +7,14 @@ import Section from '@/components/ui/Section'
 import SectionTitle from '@/components/ui/SectionTitle'
 import { consultFees, consultSteps } from '@/data/consult'
 import { voucherSupportNote } from '@/data/voucher'
-import { centerInfo, CONSULT_FORM_ENABLED, TEL_HREF } from '@/lib/constants'
+import { centerInfo, CONSULT_FORM_DEMO, CONSULT_FORM_ENABLED, TEL_HREF } from '@/lib/constants'
 
 // 폼이 꺼져 있으면 폼 코드를 내려받지 않습니다.
 const ConsultForm = dynamic(() => import('@/components/consult/ConsultForm'))
 
 // 신청 폼을 켜기 전에는 전화와 카카오 채널로만 안내합니다.
-const pageTitle = CONSULT_FORM_ENABLED ? '상담 신청' : '상담 및 이용 안내'
+const showForm = CONSULT_FORM_ENABLED || CONSULT_FORM_DEMO
+const pageTitle = showForm ? '상담 신청' : '상담 및 이용 안내'
 
 export const metadata: Metadata = { title: pageTitle }
 
@@ -72,7 +73,7 @@ export default function ConsultPage() {
         </Link>
       </div>
 
-      {CONSULT_FORM_ENABLED && <ConsultForm />}
+      {showForm && <ConsultForm />}
     </Section>
   )
 }

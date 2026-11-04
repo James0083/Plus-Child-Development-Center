@@ -28,6 +28,7 @@ npm run dev
 |---|---|---|
 | `NEXT_PUBLIC_PHONE`, `NEXT_PUBLIC_KAKAO` | 빌드 변수 | 대표 전화, 카카오 채널 링크 |
 | `NEXT_PUBLIC_SITE_URL` | 빌드 변수 | 사이트 주소. 공유 미리보기 이미지에 사용 |
+| `NEXT_PUBLIC_CONSULT_FORM_DEMO` | 빌드 변수 | GitHub Pages 미리보기용. 폼은 보이고 전송은 하지 않음 |
 | `NEXT_PUBLIC_CONSULT_FORM_ENABLED`, `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | 빌드 변수 | 상담 폼 표시, Turnstile 사이트 키 |
 | `CONSULT_FROM_ADDRESS` | Worker 변수 | 발신 주소. 센터 도메인 주소 사용 |
 | `TURNSTILE_SECRET_KEY` | Worker 비밀 값 | `npx wrangler secret put TURNSTILE_SECRET_KEY` |

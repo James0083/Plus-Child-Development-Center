@@ -30,6 +30,7 @@ jobs:
           NEXT_PUBLIC_BASE_PATH: /Plus-Child-Development-Center
           NEXT_PUBLIC_SITE_URL: https://james0083.github.io/Plus-Child-Development-Center
           NEXT_PUBLIC_NOINDEX: 'true'
+          NEXT_PUBLIC_CONSULT_FORM_DEMO: 'true'
       - uses: actions/upload-pages-artifact@v5
         with:
           path: out

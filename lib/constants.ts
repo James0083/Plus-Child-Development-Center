@@ -49,5 +49,8 @@ export const PRIVACY_RETENTION = '상담 완료 후 1년'
 export const LEGAL_EFFECTIVE_DATE = '2026년 11월 4일'
 
 // 메일 전송을 시험한 뒤에만 켭니다. 꺼져 있으면 전화와 카카오 채널로만 안내합니다.
+// 외부 확인용 시연 모드입니다. 폼은 보이지만 입력 내용을 어디로도 보내지 않습니다.
+export const CONSULT_FORM_DEMO = process.env.NEXT_PUBLIC_CONSULT_FORM_DEMO === 'true'
+
 export const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? ''
 export const CONSULT_FORM_ENABLED = process.env.NEXT_PUBLIC_CONSULT_FORM_ENABLED === 'true' && TURNSTILE_SITE_KEY !== ''
